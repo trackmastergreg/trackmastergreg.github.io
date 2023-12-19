@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="holiday.css">
+    <script src="gallery.js"></script>
+    <script src="jquery.min.js"></script>
+    <script>
+    $( document ).ready(function(){
+
+      // without animation
+
+      $("#image-show-area").click(function(){
+         $(".small-image").removeClass('active');
+        $("#show_image_popup").hide();
+      })
+
+      $(".small-image").click(function(){
+         // add active class
+         $(this).addClass('active');
+        var image_path = $(this).attr('src'); 
+        $("#show_image_popup").hide();
+        // now set this path to our popup image src
+        $("#show_image_popup").show();
+        $("#large-image").attr('src',image_path);
+
+      })
+
+    });
+    </script>
+</head>
+<body>
+
+<div class="webkit">
+<div class="wrapper">
+
+    <div id="show_image_popup">
+        <div id="image-show-area">
+            <img id="large-image" src="" alt="">
+        </div>
+    </div>
+
+    <div class="header">
+        <img class="header-image" src="wreath.png">
+        <span class="greeting">Season's Greetings & Happy New Year!</span>
+    </div>
+
+    <div class="main">
+        <img class="main-image" src="holiday.jpg"><br />
+        <span class="message">It's the greatest time of year and it's here, help us celebrate it!</span>
+    </div>
+                                         
+    <div class="content">
+        <div>
+            <h1 class="title"><span class="first-letter">Y</span>ear In Review</h1>
+            Highlights from our family's year included...<br /><br />The majority of 2023 was spent preparing for and welcoming a third child! Along with that came a renewed focus on health and wellness, concentrating on the foods we eat. Following a stricter animal based diet, we delight in items such as grass fed beef, pasture raised eggs, organic fruit and raw dairy while avoiding all seed oils. We've never felt better and have resilient immune systems.<br /><br />In June, we once again spent a wonderful week of vacation at The Los Pi&ntilde;os Del Mar, owned and operated by Greg's best friend Brian and his wife Anna. Along with enjoying the new billiard table and bonus room, the signature dining experience was a memorable highlight. We also ventured to Orange County one day to visit with Kendra's aunt and cousins at a favorite beach spot.<br /><br />In August, we took Aaron on a special birthday adventure to Reno, NV. While there we visited the Fleischmann Planetarium on the University of Nevada, Reno campus and The Discovery children's museum which was by far the best we had ever set foot in. It included puzzle rooms, exhibits across numerous branches of science and engineering and housed a climbing apparatus that went from the floor to the 2nd story ceiling. The day ended with an excellent dinner and dessert at a local pizza establishment.<br /><br />In other news, Greg went to a primary care physician for the first time in well over 20 years and received a completely clean bill of health. He celebrated his birthday this year attending a concert by country music hit-maker Clint Black. He has elevated his poker playing to new heights and enjoys battles with the other card sharps at the local casino frequently. <br /><br />Kendra was elected to a director position in the parent/teacher association at school and specializes in event coordination and fundraising. In addition to expertly carrying and delivering a child this year, she continues to grow in her role as the caretaker of our family and supports us all every single day. There is no limit to the efforts she makes to enable everyone around her to thrive.
+        </div>
+        <div class="photos">
+            <ul id="all-images">
+            <li><img class="small-image" src="RF-01.jpg" alt=""></li>  
+            <li><img class="small-image" src="RF-02.jpg" alt=""></li>  
+            <li><img class="small-image" src="RF-03.jpg" alt=""></li>  
+            <li><img class="small-image" src="RF-04.jpg" alt=""></li>  
+            <li><img class="small-image" src="RF-05.jpg" alt=""></li>  
+            <li><img class="small-image" src="RF-06.jpg" alt=""></li>  
+            </ul>
+        </div>
+        
+        <div>
+            <h1 class="title""><span class="first-letter">A</span>aron</h1>
+            Aaron turned 7 on August 21st and was one of the select 2nd graders to be placed into the combination 2nd/3rd grade class at Sunset Ranch Elementary. At the most recent trimester assessments, his teacher remarked that he is a great friend and a sweet boy that always has a good attitude and is helpful to others and also loves technology. His academic interests include space and astronomy.<br /><br />In extra curriculars, Aaron achieved his yellow belt in Taekwando and also attended lacrosse and basketball camps. He's become a huge football fan and enjoys competing with his friends at school. He also independently learned to swim and ride his two-wheeled bike. He has successfully completed an ever-growing number of Lego projects and continues to enjoy playing card and board games.<br /><br />Aaron attended another 49ers football game, a San Francisco Giants game as well as the Monster Jam truck event with his father. He also made his first visit to the cinema to see the Super Mario Brothers movie. He even took his first city bus ride, adding to the list of public transportation options he has experienced. He continues to enjoy community big truck events and various museum visits.<br /><br />Aaron takes great pride in being an awesome big brother to both his siblings and has been an enormous help with his new little brother.
+        </div>
+        <div class="photos">
+            <ul id="all-images">
+            <li><img class="small-image" src="AR-01.jpg" alt=""></li>
+            <li><img class="small-image" src="AR-02.jpg" alt=""></li>
+            <li><img class="small-image" src="AR-03.jpg" alt=""></li>
+            <li><img class="small-image" src="AR-04.jpg" alt=""></li>
+            <li><img class="small-image" src="AR-05.jpg" alt=""></li>
+            <li><img class="small-image" src="AR-06.jpg" alt=""></li>
+            </ul>
+        </div>
+        
+        <div>
+            <h1 class="title"><span class="first-letter">K</span>elsie</h1>
+            Kelsie turns 3 on December 28th, having endured another up and down year with Wolf-Hirschhorn syndrome. She continues to grow and develop at a slow pace with very limited mobility. We are working on ways to encourage her to put weight through her legs and use her hands more often. She has recently started sitting independently and loves being able to join us for meals at the dinner table.<br /><br />This past year Kelsie had successful strabismus surgery to help align her eyes and allow for better binocularity. She also transitioned to a high-fat, low-carb ketogenic diet to help battle the persistent daily seizures. When in Ketosis, we have seen a 25-50% reduction in seizure activity which has allowed her to enjoy her days a little more and make additional strides in her development.<br /><br />Kelsie surprisingly expressed much displeasure over the new baby, but eventually embraced her role as an attentive big sister. She has even learned to cry and fuss when she wants attention, something she had never done before. Kelsie absolutely adores her older brother and can often be found intently observing his video games, cheering on a game of catch or playing the villain during  block building. <br /><br />In the new year, Kelsie will be preparing to head off to preschool in order to continue receiving therapy services. She will be getting a custom wheelchair and gait trainer to help make this possible. Her parents are very nervous about sending her out into the world.
+        </div>
+        <div class="photos">
+            <ul id="all-images">
+            <li><img class="small-image" src="KR-01.jpg" alt=""></li>  
+            <li><img class="small-image" src="KR-02.jpg" alt=""></li>  
+            <li><img class="small-image" src="KR-03.jpg" alt=""></li>  
+            <li><img class="small-image" src="KR-04.jpg" alt=""></li>  
+            <li><img class="small-image" src="KR-05.jpg" alt=""></li>  
+            <li><img class="small-image" src="KR-06.jpg" alt=""></li>  
+            </ul>
+        </div>
+
+        <div>
+            <h1 class="title"><span class="first-letter">J</span>oseph</h1>
+            Joseph Nathaniel Robinson, nicknamed "Baby Joe" by his older brother very early in the pregnancy, was born on July 31st at 11:12 in the morning weighing in at 6 lbs 2 oz and measuring 19 inches long. Arriving a few weeks ahead of his scheduled due date, he required a brief 10 day stay in the NICU before being released on good behavior to join us at home.<br /><br />Joseph currently enjoys grabbing anything in close proximity and putting it in his mouth. He has recently attempted to sample real foods, but although he has enjoyed their fun flavors, he is not quite ready to eat them. He regularly eyeballs everyone's plate at dinner like a puppy waiting for scraps. We can already tell he's going to be quite the little foodie.<br /><br />Joseph has been a source of much excitement for our family in just a few short months and he is really catching us off guard with how quickly he is growing and developing. He has a great big infectious smile and his laughter is a welcome change of pace from the demanding screams of his early days. Joseph has been the perfect addition to our family!
+        </div>
+        <div class="photos">
+            <ul id="all-images">
+            <li><img class="small-image" src="JR-01.jpg" alt=""></li>  
+            <li><img class="small-image" src="JR-02.jpg" alt=""></li>  
+            <li><img class="small-image" src="JR-03.jpg" alt=""></li>  
+            <li><img class="small-image" src="JR-04.jpg" alt=""></li>  
+            <li><img class="small-image" src="JR-05.jpg" alt=""></li>  
+            <li><img class="small-image" src="JR-06.jpg" alt=""></li>  
+            </ul>
+        </div>
+
+        <div>
+            Best wishes for a holiday filled with countless blessings,<br />
+            <span class="signature">Greg, Kendra, Aaron, Kelsie & Joseph</span>
+        </div>
+        
+        <h1 class="title"><br /></h1>
+    </div>
+   
+    <div class="footer">&copy; 2023 The Robinsons</div>
+
+</div>
+</div>
+</body>
+</html>
