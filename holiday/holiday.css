@@ -50,7 +50,7 @@ img.max-width {
 }
 #show_image_popup img{
     max-width: 100%;
-    height: calc(100vh);
+    max-height: calc(100vh);
     border: 1px solid #333;
 }
 
