@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Poker Hand Dealer</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/poker.css">
+</head>
+<body>
+    <!--  membership.html -->
+    <form action="#" method="post" id="cards">
+        <fieldset><legend>Poker Hand Dealer</legend>
+            <div class="container">
+            Number of cards to deal
+            <select name="hand" id="hand">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected="selected">5</option>
+            </select>
+            or manually 
+            <select name="deckofcards" id="deckofcards"><option value="">select cards</option></select></div>
+            <div class="container">
+            <div class="box"><img class="cards" src="img/deck/deck.png" id="card1img" alt="cards" /><br /><input name="card1" id="card1"></div>
+            <div class="box"><img class="cards" src="img/deck/deck.png" id="card2img" alt="cards" /><br /><input name="card2" id="card2"></div>
+            <div class="box"><img class="cards" src="img/deck/deck.png" id="card3img" alt="cards" /><br /><input name="card3" id="card3"></div>
+            <div class="box"><img class="cards" src="img/deck/deck.png" id="card4img" alt="cards" /><br /><input name="card4" id="card4"></div>
+            <div class="box"><img class="cards" src="img/deck/deck.png" id="card5img" alt="cards" /><br /><input name="card5" id="card5"></div>
+            </div>
+            <div class="container">
+            <div class="box"><label for="deal">Shuffle up and...</label><input type="submit" value="Deal" id="submit"></div>
+            </div>
+        </fieldset>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/poker.js"></script>
+</body>
+</html>

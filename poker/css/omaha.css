@@ -1,0 +1,167 @@
+body{
+font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+background-color: #f1f2d8;
+}
+
+p, h1, form, button{border:0; margin:0; padding:0;}
+
+form{
+margin:0 auto;
+width:75%;
+padding:14px;
+background-color: #ffffff;
+border:solid 2px #425955;
+}
+
+.box{
+float:left;    
+margin:0 auto;
+width:18%;
+padding:1px;
+}
+
+.container{
+clear:both;    
+width:100%;
+padding:1px;
+background-color: #ffffff;
+font-size:14px;
+}
+
+h1 {
+font-size:14px;
+font-weight:bold;
+margin-bottom:8px;
+}
+
+h2 {
+clear: both;
+}
+
+p{
+font-size:11px;
+color:#666666;
+margin-bottom:20px;
+border-bottom:solid 1px #BFBD9F;
+padding-bottom:10px;
+}
+
+label{
+display:block;
+font-weight:bold;
+text-align:left;
+width:200px;
+float:left;
+}
+
+select{
+display:inline;
+font-size:12px;
+border:solid 1px #BFBD9F;
+width:auto;
+margin:15px 5px 15px 5px;
+}
+
+input{
+float:left;
+font-size:12px;
+padding:4px 2px;
+border:solid 1px #BFBD9F;
+width:25px;
+margin:10px 0 10px 0px;
+}
+
+#submit{
+clear:both;
+width:125px;
+height:30px;
+background:#F1F2D8;
+text-align:center;
+line-height:20px;
+color:#000000;
+font-size:12px;
+font-weight:bold;
+}
+
+#output {
+clear:both;
+margin-bottom: 10px;
+color: blue;
+}
+
+#points{
+float:left;
+font-size:12px;
+padding:4px 2px;
+border:solid 1px #BFBD9F;
+width:100px;
+margin:10px 0 10px 0px;
+}
+
+.small{
+color:#666666;
+display:block;
+font-size:11px;
+font-weight:normal;
+text-align:right;
+width:140px;
+}
+
+.cards {
+width:100px;
+}
+
+.red , .hearts, .diams{
+color: red;
+}
+
+table {
+width: 100%;
+font-size: 3.6vh;
+border-spacing: 0px 0px;
+border: 1px 1px 0px 1px solid gray;
+text-align:center;
+}
+
+tr:nth-child(odd) {
+background-color: white;
+}
+
+tr:nth-child(even) {
+background-color: #e3e3e3;
+}
+
+th {
+background-color: gray;
+vertical-align: middle;
+font-size: 3.0vh;
+}
+
+td {
+padding: 8px 4px 8px 4px;
+border: 1px solid gray;
+width: 25%;
+}
+
+td:hover {
+text-decoration: underline;
+font-weight: bold;
+}
+
+#results {
+font-size: 3.0vh;
+text-align: center;
+width: 100%;
+margin-bottom: 6px;
+}
+
+.total, .action {
+text-align: left;
+display: inline-block;
+width: 50%;
+}
+
+.reset {
+background-color: gray !important;
+padding: 16px 4px 16px 4px;
+}

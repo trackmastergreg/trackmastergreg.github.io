@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Poker Tournament Wizard</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/tournament.css">
+</head>
+<body>
+    <form action="#" method="post" id="tournament">
+        <div id="form">
+            <fieldset>
+            <legend><span class= "red">&hearts;</span> &spades; Poker Tournament Wizard &clubs; <span class= "red">&diams;</span></legend>
+            <p>
+            <label for="level">Level</label>
+            <select id="levels" class="levels"><option>Select level</option></select>
+            </p>
+            <p>
+            <label for="stack">Stack</label>
+            <input type="text" id="stack" name="stack">
+            </p>
+            <p>
+            <label for="ante">Ante</label>
+            <input type="text" id="ante" name="ante">
+            </p>
+            <p>
+            <label for="small_blind">Small Blind</label>
+            <input type="text" id="small_blind" name="small_blind">
+            </p>
+            <p>
+            <label for="big_blind">Big Blind</label>
+            <input type="text" id="big_blind" name="big_blind">
+            </p>
+            <p>
+            <label for="ante">Players</label>
+            <select name="players" id="players">
+            <option value="10" selected="selected">10</option>
+            <option value="9">9</option>
+            <option value="8">8</option>
+            <option value="7">7</option>
+            <option value="6">6</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            </select>
+            </p>
+            <label for="ante">M Ratio</label>
+            <input type="text" id="ratio" name="ratio">
+            </fieldset>
+        </div>
+        <div id="instructions">
+            <div id="m5" class="m_class">
+            <h1>Green Zone</h1>
+            -Can play many different styles, build stack while also protecting it.<br />
+            -Value bet aggressively when in the lead with your made hands.<br />
+            -See flops cheaply in position and use pot odds to assess draws.<br />
+            <h3>If no one has raised...</h3>
+            <table>
+            <tr><td><b>Early- </b>99+, AQ+ raise/call 75%/25% - 66+ call/raise 75%/25% - AJs raise/call 50%/50% - AJ, KQs, JTs call/fold 50%/50% - suited connectors 65s+ raise to mix things up</td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QD.png" />-<img src="img/deck/6D.png" /><img src="img/deck/6C.png" />-<img src="img/deck/AH.png" /><img src="img/deck/JH.png" />-<img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/KD.png" /><img src="img/deck/QD.png" /> <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/6H.png" /><img src="img/deck/5H.png" /></td></tr>
+            <tr><td><b>Middle - </b>99+, AQ+ raise 100% - A8+ raise/call 75%/25% - 66+, KJ+, K9s+, QJ, QTs, JTs raise/call 50%/50% - 44+, T9s call/fold 50%/50%</td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QD.png" />-<img src="img/deck/AH.png" /><img src="img/deck/8C.png" />-<img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/QC.png" /><img src="img/deck/JD.png" /> <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/4C.png" /><img src="img/deck/4H.png" /> <img src="img/deck/TH.png" /><img src="img/deck/9H.png" /></td></tr>
+            <tr><td><b>Late - </b>99+, A2+, K9+, Q9+, J9s+, suited connectors 65s+ raise 100% - 44+ raise/call 75%/25% - 22+ raise/call 50%/50%</td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AD.png" /><img src="img/deck/2C.png" /> <img src="img/deck/KC.png" /><img src="img/deck/9D.png" /> <img src="img/deck/QH.png" /><img src="img/deck/9S.png" /> <img src="img/deck/JH.png" /><img src="img/deck/9H.png" /> <img src="img/deck/6C.png" /><img src="img/deck/5C.png" />-<img src="img/deck/4S.png" /><img src="img/deck/4D.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2H.png" /></td></tr>
+            <tr><td><b>Blinds - </b>22+, A2+, K2+, Q5+, J9s+ raise/call 50%/50%</td></tr>
+            <tr><td><img src="img/deck/2D.png" /><img src="img/deck/2C.png" /> <img src="img/deck/AC.png" /><img src="img/deck/2H.png" /> <img src="img/deck/KD.png" /><img src="img/deck/2S.png" /> <img src="img/deck/QD.png" /><img src="img/deck/5S.png" /> <img src="img/deck/JS.png" /><img src="img/deck/9S.png" /></td></tr>
+            </table> 
+            <h3>Facing a raise (if player is wild see above)</h3>
+            <table>
+            <tr><td><b>All - </b>KK+ raise/call 80%/20% - QQ raise/call 70%/30% - TT+ call/raise 80%/20% - 77+, AK, AQs call 100%</td></tr>
+            <tr><td><img src="img/deck/KD.png" /><img src="img/deck/KC.png" />-<img src="img/deck/QC.png" /><img src="img/deck/QD.png" />-<img src="img/deck/TD.png" /><img src="img/deck/TC.png" />-<img src="img/deck/7H.png" /><img src="img/deck/7C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/KS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            <h3>One caller</h3>
+            <table>
+            <tr><td><b>All - </b>TT+, AK, AQs raise 100% - 99 raise/call 50%/50% - 22+, AJ+, ATs+, KQs call</td></tr>
+            <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AH.png" /><img src="img/deck/KS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QC.png" />-<img src="img/deck/9C.png" /><img src="img/deck/9D.png" />-<img src="img/deck/2D.png" /><img src="img/deck/2C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/AH.png" /><img src="img/deck/TH.png" /> <img src="img/deck/KC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            <h3>Multiple callers</h3>
+            <table>
+            <tr><td><b>All - </b>TT+, AK, AQs raise 100% - 22+, AT+, A2s+, KJ+ all connectors 54+ call 100%</td></tr>
+            <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AH.png" /><img src="img/deck/KS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" /> <img src="img/deck/AH.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AH.png" /><img src="img/deck/2H.png" /> <img src="img/deck/KC.png" /><img src="img/deck/JD.png" /> <img src="img/deck/5C.png" /><img src="img/deck/4D.png" /></td></tr>
+            </table> 
+            </div>
+            <div id="m4" class="m_class">
+            <h1>Yellow Zone</h1>
+            -Can't stay too conservative, slightly lower starting hand requirements.<br />
+            -No longer able to play small pairs and suited connectors profitably.<br/>
+            -Avoid calling, come in for a raise and then c-bet the flop for value.<br />
+            <h3>If no one has raised...</h3>
+            <table>
+            <tr><td><b>Early - </b>99+, AQ+ raise 100% - A8+ raise/fold 75%/25% - 66+, KJ+, K9s+, QJ, QTs, JTs raise/fold 50%/50%</td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QD.png" />-<img src="img/deck/AH.png" /><img src="img/deck/8C.png" />-<img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/KD.png" /><img src="img/deck/9D.png" /> <img src="img/deck/QS.png" /><img src="img/deck/JD.png" /> <img src="img/deck/JS.png" /><img src="img/deck/TS.png" /></td></tr>
+            <tr><td><b>Middle - </b>99+, A8+ raise 100% - 66+, KJ+, K9s+, QJ, QTs, JTs raise/fold 75%/25%</td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/8C.png" />-<img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/KD.png" /><img src="img/deck/9D.png" /> <img src="img/deck/QS.png" /><img src="img/deck/JD.png" /> <img src="img/deck/JS.png" /><img src="img/deck/TS.png" /></td></tr>
+            <tr><td><b>Late - </b>22+, A2+, K9+, Q9+, J9s+, suited connectors 65s+ raise 100%</td></tr>
+            <tr><td><img src="img/deck/2D.png" /><img src="img/deck/2C.png" /> <img src="img/deck/AD.png" /><img src="img/deck/2C.png" /> <img src="img/deck/KC.png" /><img src="img/deck/9D.png" /> <img src="img/deck/QH.png" /><img src="img/deck/9S.png" /> <img src="img/deck/JS.png" /><img src="img/deck/9S.png" /> <img src="img/deck/6H.png" /><img src="img/deck/5H.png" /></td></tr>
+            <tr><td><b>Blinds - </b>22+, A2+, K2+, Q5+, J9s+ raise/call 75%/25%</td></tr>
+            <tr><td><img src="img/deck/2D.png" /><img src="img/deck/2C.png" /> <img src="img/deck/AC.png" /><img src="img/deck/2H.png" /> <img src="img/deck/KD.png" /><img src="img/deck/2S.png" /> <img src="img/deck/QD.png" /><img src="img/deck/5S.png" /> <img src="img/deck/JS.png" /><img src="img/deck/9S.png" /></td></tr>
+            </table> 
+            <h3>Facing a raise (if player is wild see above)</h3>
+            <table>
+            <tr><td><b>All - </b>QQ+ raise 100% - 99+ raise/call 50%/50% - 66+, AJ+, ATs, KQs call 100%</td></tr>
+            <tr><td><img src="img/deck/QC.png" /><img src="img/deck/QD.png" />-<img src="img/deck/9D.png" /><img src="img/deck/9C.png" />-<img src="img/deck/6H.png" /><img src="img/deck/6C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JD.png" /> <img src="img/deck/AH.png" /><img src="img/deck/TH.png" /> <img src="img/deck/KC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            <h3>One caller</h3>
+            <table>
+            <tr><td><b>All - </b>99+, AK, AQs raise 100% - 66+, AJ+, ATs, KQs raise/call 50%/50% </td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/KS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/QC.png" />-<img src="img/deck/6C.png" /><img src="img/deck/6D.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/AH.png" /><img src="img/deck/TH.png" /> <img src="img/deck/KC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            <h3>Multiple callers</h3>
+            <table>
+            <tr><td><b>All - </b>99+, AT+ raise 100% - 66+, A2s+, KJ+, KTs, QJ, QTs, JTs call 100%</td></tr>
+            <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/TS.png" />-<img src="img/deck/6C.png" /><img src="img/deck/6D.png" /> <img src="img/deck/AH.png" /><img src="img/deck/2H.png" /> <img src="img/deck/KD.png" /><img src="img/deck/TD.png" /> <img src="img/deck/QS.png" /><img src="img/deck/JD.png" /> <img src="img/deck/JS.png" /><img src="img/deck/TS.png" /></td></tr>
+            </table> 
+            </div>
+            <div id="m3" class="m_class">
+            <h1>Orange Zone</h1>
+            -Always try and be first in the pot, attempt steals with standard raise.<br />
+            -Still have the option to fold against re-raise, no more advanced moves.<br />
+            -No calling with drawing hands or making marginal calls from the blinds.<br />
+            <h3>No raise</h3>
+            <table>
+            <tr><td><b>Early - </b>TT+, AK, AQs raise 100%</td></tr>
+            <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/KD.png" /> <img src="img/deck/AH.png" /><img src="img/deck/QH.png" /></td></tr>
+            <tr><td><b>Middle - </b>88+, AJ+, KQ raise 100%</td></tr>
+            <tr><td><img src="img/deck/8D.png" /><img src="img/deck/8C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/KS.png" /><img src="img/deck/QH.png" /></td></tr>
+            <tr><td><b>Late - </b>66+, AJ+, A2s+, KQ, QJs, JTs raise 100%</td></tr>
+            <tr><td><img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/2C.png" /> <img src="img/deck/KS.png" /><img src="img/deck/QH.png" /> <img src="img/deck/QS.png" /><img src="img/deck/TS.png" /> <img src="img/deck/JD.png" /><img src="img/deck/TD.png" /></td></tr>
+            <tr><td><b>Blinds - </b>66+, AJ+, A2s+, KQ, QJs, JTs raise 100%</td></tr>
+            <tr><td><img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/2C.png" /> <img src="img/deck/KS.png" /><img src="img/deck/QH.png" /> <img src="img/deck/QS.png" /><img src="img/deck/TS.png" /> <img src="img/deck/JD.png" /><img src="img/deck/TD.png" /></td></tr>
+            </table>
+            <h3>Facing a raise (if player is wild see above)</h3>
+            <table>
+            <tr><td><b>Early/Middle - </b>QQ+ raise 100% - TT+, AK, AQs call/raise 50%/50%</td></tr>
+            <tr><td><img src="img/deck/QD.png" /><img src="img/deck/QC.png" />-<img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/KD.png" /> <img src="img/deck/AH.png" /><img src="img/deck/QH.png" /></td></tr>
+            <tr><td><b>Late - </b>TT+, AK, AQs raise 100% - 88,+ AJ+, KQ call/raise 50%/50%</td></tr>
+            <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/KD.png" /> <img src="img/deck/AH.png" /><img src="img/deck/QH.png" />-<img src="img/deck/8D.png" /><img src="img/deck/8C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/KS.png" /><img src="img/deck/QH.png" /></td></tr>
+            <tr><td><b>Blinds - </b>TT+, AK, AQs raise 100% - 88,+ AJ+, KQ call/raise 50%/50%</td></tr>
+            <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/KD.png" /> <img src="img/deck/AH.png" /><img src="img/deck/QH.png" />-<img src="img/deck/8D.png" /><img src="img/deck/8C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JC.png" /> <img src="img/deck/KS.png" /><img src="img/deck/QH.png" /></td></tr>
+            </table>
+            <h3>One caller</h3>
+            <table>
+            <tr><td><b>All - </b>66+, AJ+, ATs, KQs raise 100% </td></tr>
+            <tr><td><img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/TC.png" /> <img src="img/deck/KC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            <h3>Multiple callers</h3>
+            <table>
+            <tr><td><b>All - </b>88+, AT+ call/raise 50%/50%</td></tr>
+            <tr><td><img src="img/deck/8D.png" /><img src="img/deck/8C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/TS.png" /></td></tr>
+            </table>
+            </div>
+            <div id="m2" class="m_class">
+            <h1>Red Zone</h1>
+            -Only move is all-in or fold, always be first in the pot when making a move.<br />
+            -Identify players who don't protect their blinds and try to steal from them.<br />
+            <h3>If no one has raised...</h3>
+            <table>
+            <tr><td><b>Early - </b>88+, AJ+, KJ+, QJ raise 100%</td></tr>
+            <tr><td><img src="img/deck/8D.png" /><img src="img/deck/8C.png" /> <img src="img/deck/AC.png" /><img src="img/deck/JD.png" /> <img src="img/deck/KS.png" /><img src="img/deck/JH.png" /> <img src="img/deck/QC.png" /><img src="img/deck/JD.png" /></td></tr>
+            <tr><td><b>Middle - </b>44+, A8+, KT+, K9s, QT+, Q9s, JT raise 100%</td></tr>
+            <tr><td><img src="img/deck/4D.png" /><img src="img/deck/4C.png" /> <img src="img/deck/AD.png" /><img src="img/deck/8C.png" /> <img src="img/deck/KC.png" /><img src="img/deck/TH.png" /> <img src="img/deck/KD.png" /><img src="img/deck/9D.png" /> <img src="img/deck/QS.png" /><img src="img/deck/TC.png" /> <img src="img/deck/QS.png" /><img src="img/deck/9S.png" /> <img src="img/deck/JC.png" /><img src="img/deck/TD.png" /></td></tr>
+            <tr><td><b>Late - </b>22+, A2+, K2+, Q2+, JT, suited connectors 32+ - any connector M <=3 raise 100% </td></tr>
+            <tr><td><img src="img/deck/2D.png" /><img src="img/deck/2C.png" /> <img src="img/deck/AD.png" /><img src="img/deck/2C.png" /> <img src="img/deck/KC.png" /><img src="img/deck/2H.png" /> <img src="img/deck/QS.png" /><img src="img/deck/2D.png" /> <img src="img/deck/JC.png" /><img src="img/deck/TD.png" /> <img src="img/deck/3H.png" /><img src="img/deck/2H.png" />-<img src="img/deck/3C.png" /><img src="img/deck/2D.png" /></td></tr>
+            <tr><td><b>Blinds - </b>22+, A2+, K2+, Q2+, JT raise 100% </td></tr>
+            <tr><td><img src="img/deck/2D.png" /><img src="img/deck/2C.png" /> <img src="img/deck/AD.png" /><img src="img/deck/2C.png" /> <img src="img/deck/KC.png" /><img src="img/deck/2H.png" /> <img src="img/deck/QS.png" /><img src="img/deck/2D.png" /> <img src="img/deck/JC.png" /><img src="img/deck/TD.png" /></td></tr>
+            </table> 
+            <h3>Facing a raise (if player is wild see above)</h3>
+            <table>
+            <tr><td><b>All - </b>TT+, AK, AQs raise 100%</td></tr>
+            <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" /> <img src="img/deck/AC.png" /><img src="img/deck/KD.png" /> <img src="img/deck/AH.png" /><img src="img/deck/QH.png" /></td></tr>
+            </table>
+            <h3>One caller</h3>
+            <table>
+            <tr><td><b>All - </b>66+, AJ+, ATs, KQ raise 100%</td></tr>
+            <tr><td><img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/TC.png" /> <img src="img/deck/KC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            <h3>Multiple callers</h3>
+            <table>
+            <tr><td><b>All - </b>66+, AJ+, ATs, KQ raise 100%</td></tr>
+            <tr><td><img src="img/deck/6D.png" /><img src="img/deck/6C.png" /> <img src="img/deck/AH.png" /><img src="img/deck/JS.png" /> <img src="img/deck/AC.png" /><img src="img/deck/TC.png" /> <img src="img/deck/KC.png" /><img src="img/deck/QC.png" /></td></tr>
+            </table> 
+            </div>
+            <div id="m1" class="m_class">
+            <h1>Dead Zone</h1>
+            -You have virtually no fold equity.<br />
+            -Play any two cards for all your chips.<br />
+            <table>
+            <tr><td><b>All - </b>Any two cards - raise/call 100%</td></tr>
+            <tr><td><img src="img/deck/7S.png" /><img src="img/deck/2D.png" /></td></tr>
+            </table> 
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>    
+    <script type="text/javascript" src="js/tournament.js"></script>
+</body>
+</html>

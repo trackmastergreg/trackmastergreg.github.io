@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>No Limit Hold'em</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/nolimit.css">
+</head>
+<body>
+    <form action="#" method="post" id="nolimit">
+    
+    <div id="form">
+        <fieldset>
+        <legend>
+            <span class= "red">&hearts;</span> &spades; No Limit - Cash Game &clubs; <span class= "red">&diams;</span>
+        </legend>
+        <div id="position">
+            Blinds<input type="radio" name="positions" value="blinds" checked="checked"/>
+            Button<input type="radio" name="positions" value="button"/>
+            Cutoff<input type="radio" name="positions" value="cutoff"/>
+            Early <input type="radio" name="positions" value="early"/>
+        </div>
+        </fieldset>
+    </div>
+
+    <div id="description">
+        <div class="blinds">
+        <h1>Blinds</h1>-Either the small or big blind
+        </div>
+        <div class="early">
+        <h1>Early</h1>-From under the gun to two off the button
+        </div>
+        <div class="cutoff">
+        <h1>Cutoff</h1>-One position before the button
+        </div>
+        <div class="button">
+        <h1>Button</h1>-On the button
+        </div>
+    </div>
+
+    <div id="strategy">
+        <!-- automatically inserted -->
+    </div>
+
+    <div id="extras">
+
+    <h3>Tips & tricks<span class="show" title="tips">...</span></h3>
+    <div class="clear"></div>
+    <div id="tips" class="hide">
+        <p>-Identify oponents preflop ranges based on limp/raise frequency and early/late action</p>
+        <p>-Small pairs flop big hands, but have low equity when called so bet as bluffs pre-flop</p>
+        <p>-Suited connectors have high equity when called, great to bet as bluffs on flop/turn</p>
+    </div>
+    
+    <h3>Flop texture<span class="show" title="flop">...</span></h3>
+    <div class="clear"></div>
+    <div id="flop" class="hide">
+        <p><b><i>Static Flop</i></b> - hand values unlikely to change on the turn and river. There are large equity differences between various hand levels</p>
+        <p>-Typically feature one or two high cards</p>
+        <p>-If also a flush draw then <i>semi-static</i></p>
+        <p>-All one suit/straight draw then <i>semi-dynamic</i></p> 
+        <p><b><i>Dynamic Flop</i></b> - hand values are very likely to change significantly on the turn and river. Hand equities tend to run much closer together</p>
+        <p>-Primarily feature a highest card lower than 10</p>
+        <p>-If also a flush/straight draw <i>super-dynamic</i></p>
+    </div>
+
+    <h3>Post-flop play<span class="show" title="post">...</span></h3>
+    <div class="clear"></div>
+    <div id="post" class="hide">
+        <p>-If you flop a good hand, get it to showdown and make opponents pay along the way.</p>
+        <p>-Hands without showdown value are the ones to bet enough that your opponents fold.</p>
+        <p>-Decide how many streets of value by determining how many worse hands can call.</p>
+        <p>-Static board less barrels. When you bet the flop and get called, if you don't have a very strong hand it's probably time to give up.</p>
+        <p>-Static board allows freedom to choose which streets to bet and check based on reads/image.</p>
+        <p>-Semi-static board with flush/straight draws present, make value bets earlier in the hand.</p>
+        <p>-Dynamic boards may require third barrels when river does not complete draws.</p>
+        <p>-Dynamic board with marginal equity check call/fold based on opponent actions.</p>
+        <p>-With position and the betting lead always consider raising when someone bets into you</p>
+    </div>
+    
+    <h3>Hand selected<span class="show" title="hand">...</span></h3>
+    <div id="hand">
+        <!-- automatically inserted -->
+    </div>
+    
+    <div id="details">
+        <div class="blinds">
+        <h1>Blinds</h1>-Either the small or big blind<br />
+        <h3>If no one has <span class="tool_tip" title="Everyone at the table thus far has either limped or folded">raised...</span></h3>
+        <table>
+        <tr><td><b>Raise- </b>99+, ATs+, A5s-A2s, KJs+, K8s, 76s, AQ+</td></tr>
+        <tr><td><img src="img/deck/9C.png" /><img src="img/deck/9D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/TD.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" />-<img src="img/deck/AH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/KH.png" /><img src="img/deck/JH.png" />, <img src="img/deck/KD.png" /><img src="img/deck/8D.png" />, <img src="img/deck/7C.png" /><img src="img/deck/6C.png" />, <img src="img/deck/AS.png" /><img src="img/deck/QH.png" /></td></tr>
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from early position or from a player who typically limps">tight raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA, KK, A5s</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />, <img src="img/deck/KD.png" /><img src="img/deck/KC.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" /></td></tr>
+        <tr><td><b>Call- </b>QQ-22, ATs+, KTs+, QTs+, JTs-76s, AK</td></tr>
+        <tr><td><img src="img/deck/QD.png" /><img src="img/deck/QC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/TD.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/KH.png" /></td></tr>
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from late position or from a player who raises frequently">loose raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA-QQ, A5s-A2s, T9s, 87s, AK</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />-<img src="img/deck/QD.png" /><img src="img/deck/QC.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" />-<img src="img/deck/AH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/TS.png" /><img src="img/deck/9S.png" />, <img src="img/deck/8C.png" /><img src="img/deck/7C.png" />, <img src="img/deck/AH.png" /><img src="img/deck/KC.png" /></td></tr>
+        <tr><td><b>Call- </b>JJ-22, AQs-A6s, KTs+, QTs+, JTs, 98s, 76s, AQ</td></tr>
+        <tr><td><img src="img/deck/JD.png" /><img src="img/deck/JC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/QD.png" />-<img src="img/deck/AD.png" /><img src="img/deck/6D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />, <img src="img/deck/9C.png" /><img src="img/deck/8C.png" />, <img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/QH.png" /></td></tr>
+        </table>
+        <h3>Against a <span class="tool_tip" title="A raise from an aggressive player in late positon trying to steal the pot">steal raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>99+, 44-22, A2s+, KJs+, K7s-K5s, Q9s, 98s-54s, J9s-86s, AJ+, KQ</td></tr>
+        <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" />, <img src="img/deck/4D.png" /><img src="img/deck/4C.png" />-<img src="img/deck/2D.png" /><img src="img/deck/2C.png" />, <img src="img/deck/AH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/KS.png" /><img src="img/deck/JS.png" />, <img src="img/deck/KD.png" /><img src="img/deck/7D.png" />-<img src="img/deck/KD.png" /><img src="img/deck/5D.png" />,<img src="img/deck/QS.png" /><img src="img/deck/9S.png" />, <img src="img/deck/9C.png" /><img src="img/deck/8C.png" />-<img src="img/deck/5H.png" /><img src="img/deck/4H.png" />, <img src="img/deck/JC.png" /><img src="img/deck/9C.png" />-<img src="img/deck/8H.png" /><img src="img/deck/6H.png" />, <img src="img/deck/AH.png" /><img src="img/deck/JC.png" />, <img src="img/deck/KH.png" /><img src="img/deck/QC.png" /></td></tr>
+        <tr><td><b>Call- </b>88-55, KTs-K8s, K4s-K2s, QJs-QTs, Q8s-Q5s, JTs-T9s, 43s, 75s-53s, J8s-96s, J7s, A8+, K9+, Q9+, JT-98, J9</td></tr>
+        <tr><td><img src="img/deck/8D.png" /><img src="img/deck/8C.png" />-<img src="img/deck/5D.png" /><img src="img/deck/5C.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />-<img src="img/deck/KH.png" /><img src="img/deck/8H.png" />, <img src="img/deck/KD.png" /><img src="img/deck/4D.png" />-<img src="img/deck/KD.png" /><img src="img/deck/2D.png" />, <img src="img/deck/QS.png" /><img src="img/deck/JS.png" />-<img src="img/deck/QS.png" /><img src="img/deck/TS.png" />, <img src="img/deck/QD.png" /><img src="img/deck/8D.png" />-<img src="img/deck/QD.png" /><img src="img/deck/5D.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/TH.png" /><img src="img/deck/9H.png" />, <img src="img/deck/4S.png" /><img src="img/deck/3S.png" />, <img src="img/deck/7C.png" /><img src="img/deck/5C.png" />-<img src="img/deck/5H.png" /><img src="img/deck/3H.png" />, <img src="img/deck/JC.png" /><img src="img/deck/8C.png" />-<img src="img/deck/9H.png" /><img src="img/deck/6H.png" />, <img src="img/deck/JC.png" /><img src="img/deck/7C.png" />, <img src="img/deck/AH.png" /><img src="img/deck/8C.png" />, <img src="img/deck/KH.png" /><img src="img/deck/9C.png" />, <img src="img/deck/QH.png" /><img src="img/deck/9C.png" />, <img src="img/deck/JH.png" /><img src="img/deck/TC.png" />-<img src="img/deck/9H.png" /><img src="img/deck/8C.png" />, <img src="img/deck/JH.png" /><img src="img/deck/9C.png" /></td></tr>
+        </table>
+        </div>
+
+        <div class="button">
+        <h1>Button</h1>-On the button<br />
+        <h3>If no one has <span class="tool_tip" title="Everyone at the table thus far has either limped or folded">raised...</span></h3>
+        <table>
+        <tr><td><b>Raise- </b>22+, A2s+, K2s+, Q5s+, J7s+, T9s-43s, T8s-53s, T7s-96s, A7+, K9+, QT+, JT</td></tr>
+        <tr><td><img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/2D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/QC.png" /><img src="img/deck/5C.png" />, <img src="img/deck/JS.png" /><img src="img/deck/7S.png" />, <img src="img/deck/TS.png" /><img src="img/deck/9S.png" />-<img src="img/deck/4D.png" /><img src="img/deck/3D.png" />, <img src="img/deck/TS.png" /><img src="img/deck/8S.png" />-<img src="img/deck/5D.png" /><img src="img/deck/3D.png" />, <img src="img/deck/TS.png" /><img src="img/deck/7S.png" />-<img src="img/deck/9D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/7H.png" />, <img src="img/deck/KS.png" /><img src="img/deck/9H.png" />, <img src="img/deck/QS.png" /><img src="img/deck/TH.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TH.png" /></td></tr>
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from early position or from a player who typically limps">tight raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA, KK, A5s</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />, <img src="img/deck/KD.png" /><img src="img/deck/KC.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" /></td></tr>
+        <tr><td><b>Call- </b>QQ-22, ATs+, KTs+, QTs+, JTs-76s, AK</td></tr>
+        <tr><td><img src="img/deck/QD.png" /><img src="img/deck/QC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/TD.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/KH.png" /></td></tr>
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from late position or from a player who raises frequently">loose raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>99+, ATs+, A5s-A2s, KJs+, QJs, JTs, 97s, 75s, AQ+</td></tr>
+        <tr><td><img src="img/deck/9D.png" /><img src="img/deck/9C.png" />, <img src="img/deck/AH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" />-<img src="img/deck/AH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/KS.png" /><img src="img/deck/JS.png" />, <img src="img/deck/QC.png" /><img src="img/deck/JC.png" />, <img src="img/deck/JH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/9S.png" /><img src="img/deck/7S.png" />, <img src="img/deck/7D.png" /><img src="img/deck/5D.png" />, <img src="img/deck/AH.png" /><img src="img/deck/QC.png" /></td></tr>
+        <tr><td><b>Call- </b>88-22, A9s-A6s, K9s+, Q9s+, T9s-43s, J9s, T8s, 86s, 64s, 53s, J8s, T7s, AT+, KJ+</td></tr>
+        <tr><td><img src="img/deck/8D.png" /><img src="img/deck/8C.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/9D.png" />-<img src="img/deck/AD.png" /><img src="img/deck/6D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/9H.png" />, <img src="img/deck/QC.png" /><img src="img/deck/9C.png" />, <img src="img/deck/TS.png" /><img src="img/deck/9S.png" />-<img src="img/deck/4D.png" /><img src="img/deck/3D.png" />, <img src="img/deck/JC.png" /><img src="img/deck/9C.png" />, <img src="img/deck/TD.png" /><img src="img/deck/8D.png" />, <img src="img/deck/8H.png" /><img src="img/deck/6H.png" />, <img src="img/deck/6C.png" /><img src="img/deck/4C.png" />, <img src="img/deck/5H.png" /><img src="img/deck/3H.png" />, <img src="img/deck/JS.png" /><img src="img/deck/8S.png" />, <img src="img/deck/TH.png" /><img src="img/deck/7H.png" />, <img src="img/deck/AS.png" /><img src="img/deck/TH.png" />, <img src="img/deck/KS.png" /><img src="img/deck/JH.png" /></td></tr>
+        </table> 
+        </div>
+
+        <div class="cutoff">
+        <h1>Cutoff</h1>-One position before the button<br />
+        <h3>If no one has <span class="tool_tip" title="Everyone at the table thus far has either limped or folded">raised...</span></h3>
+        <table>
+        <tr><td><b>Raise- </b>22+, A2s+, K7s+, Q9s+, JTs-43s, J9s-53s, AT+, KJ+</td></tr>
+        <tr><td><img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/2D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/7H.png" />, <img src="img/deck/QC.png" /><img src="img/deck/9C.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/4D.png" /><img src="img/deck/3D.png" />, <img src="img/deck/JS.png" /><img src="img/deck/9S.png" />-<img src="img/deck/5D.png" /><img src="img/deck/3D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/TH.png" />, <img src="img/deck/KS.png" /><img src="img/deck/JH.png" /></td></tr>            
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from early position or from a player who typically limps">tight raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA, KK, A5s</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />, <img src="img/deck/KD.png" /><img src="img/deck/KC.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" /></td></tr>
+        <tr><td><b>Call- </b>QQ-22, ATs+, KTs+, QTs+, JTs-76s, AK</td></tr>
+        <tr><td><img src="img/deck/QD.png" /><img src="img/deck/QC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/TD.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/KH.png" /></td></tr>
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from late position or from a player who raises frequently">loose raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA-JJ, AKs, A7s, A5s-A2s, T9s, 87s, 54s, AK</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />-<img src="img/deck/JD.png" /><img src="img/deck/JC.png" />, <img src="img/deck/AS.png" /><img src="img/deck/KS.png" />, <img src="img/deck/AH.png" /><img src="img/deck/7H.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" />-<img src="img/deck/AH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/TS.png" /><img src="img/deck/9S.png" />, <img src="img/deck/8C.png" /><img src="img/deck/7C.png" />, <img src="img/deck/5C.png" /><img src="img/deck/4C.png" />, <img src="img/deck/AH.png" /><img src="img/deck/KC.png" /></td></tr>
+        <tr><td><b>Call- </b>TT-22, AQs-A8s, A6s, K9s+, Q9s+, JTs, 98s, 76s, 65s, J9s-86s, AJ+, KQ</td></tr>
+        <tr><td><img src="img/deck/TD.png" /><img src="img/deck/TC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/QD.png" />-<img src="img/deck/AD.png" /><img src="img/deck/8D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/6D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/9H.png" />, <img src="img/deck/QC.png" /><img src="img/deck/9C.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />, <img src="img/deck/9C.png" /><img src="img/deck/8C.png" />, <img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/6H.png" /><img src="img/deck/5H.png" />, <img src="img/deck/JS.png" /><img src="img/deck/9S.png" />-<img src="img/deck/8H.png" /><img src="img/deck/6H.png" />, <img src="img/deck/AS.png" /><img src="img/deck/JH.png" />, <img src="img/deck/KS.png" /><img src="img/deck/QH.png" /></td></tr>
+        </table> 
+        </div>
+
+        <div class="early">
+        <h1>Early</h1>-From under the gun to two off the button<br />
+        <h3>If no one has <span class="tool_tip" title="Everyone at the table thus far has either limped or folded">raised...</span></h3>
+        <table>
+        <tr><td><b>Raise- </b>22+, A2s+, KTs+, QTs+, JTs-76s, AQ+</td></tr>
+        <tr><td><img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/2D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/QH.png" /></td></tr>            
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from early position or from a player who typically limps">tight raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA, KK, A5s</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />, <img src="img/deck/KD.png" /><img src="img/deck/KC.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" /></td></tr>
+        <tr><td><b>Call- </b>QQ-22, ATs+, KTs+, QTs+, JTs-76s, AK</td></tr>
+        <tr><td><img src="img/deck/QD.png" /><img src="img/deck/QC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/TD.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />-<img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/KH.png" /></td></tr>
+        </table> 
+        <h3>Against a <span class="tool_tip" title="A raise from late position or from a player who raises frequently">loose raise...</span></h3>
+        <table>
+        <tr><td><b>3 Bet- </b>AA-QQ, A5s-A2s, T9s, 87s, AK</td></tr>
+        <tr><td><img src="img/deck/AD.png" /><img src="img/deck/AC.png" />-<img src="img/deck/QD.png" /><img src="img/deck/QC.png" />, <img src="img/deck/AH.png" /><img src="img/deck/5H.png" />-<img src="img/deck/AH.png" /><img src="img/deck/2H.png" />, <img src="img/deck/TS.png" /><img src="img/deck/9S.png" />, <img src="img/deck/8C.png" /><img src="img/deck/7C.png" />, <img src="img/deck/AH.png" /><img src="img/deck/KC.png" /></td></tr>
+        <tr><td><b>Call- </b>JJ-22, AQs-A6s, KTs+, QTs+, JTs, 98s, 76s, AQ</td></tr>
+        <tr><td><img src="img/deck/JD.png" /><img src="img/deck/JC.png" />-<img src="img/deck/2C.png" /><img src="img/deck/2D.png" />, <img src="img/deck/AD.png" /><img src="img/deck/QD.png" />-<img src="img/deck/AD.png" /><img src="img/deck/6D.png" />, <img src="img/deck/KH.png" /><img src="img/deck/TH.png" />, <img src="img/deck/QC.png" /><img src="img/deck/TC.png" />, <img src="img/deck/JS.png" /><img src="img/deck/TS.png" />, <img src="img/deck/9C.png" /><img src="img/deck/8C.png" />, <img src="img/deck/7D.png" /><img src="img/deck/6D.png" />, <img src="img/deck/AS.png" /><img src="img/deck/QH.png" /></td></tr>
+        </table> 
+        </div>
+    </div>
+    </div>
+
+    </form>
+        
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>    
+    <script type="text/javascript" src="js/nolimit.js"></script>
+</body>
+</html>
