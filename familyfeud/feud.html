@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Family Feud</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/feud.css">
+</head>
+<body>
+    
+    <div class="header">
+    <div id="games" class="box">FAMILY FEUD</div>
+    <div id="strikes" class="box">
+        <span class="x" id="x1" onClick="strike('x1')";>X</span>
+        <span class="x" id="x2" onClick="strike('x2')";>X</span>
+        <span class="x" id="x3" onClick="strike('x3')";>X</span>
+    </div>
+    </div>
+    <div id="question" class="header" onClick="showQuestion()";></div>
+    <div id="board" class="gallery"></div>
+    <div id="score" class="score"></div>
+    
+    <audio id="reveal" src="audio/reveal.wav" ></audio>
+    <audio id="strike" src="audio/strike.wav" ></audio>
+    <audio id="ring-in" src="audio/ring-in.wav" ></audio>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/feud.js"></script>
+</body>
+</html>

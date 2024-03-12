@@ -1,0 +1,133 @@
+@font-face {
+font-family: Feud;
+src: url(../font/feud.ttf);
+}
+    
+body {
+font-family: "Feud";
+background-color: #f1f2d8;
+}
+
+p, h1 {
+border: 0; 
+margin: 0; 
+padding: 0;
+}
+
+a {
+text-decoration: none;       
+color: brown; 
+}
+
+.home {
+border: 1px solid #363636;
+margin: 0 auto;
+width: fit-content;
+text-align: center;
+}
+
+.home img {
+max-width: 95vw;
+max-height: 95vh;
+}
+
+.header {
+display: flex;
+flex-wrap: nowrap;
+justify-content: flex-start;
+width: 97.5vw;
+margin: 0 auto .5rem auto;
+}
+
+.box{
+width:50%;
+}
+
+h1 {
+font-size: 5.0vw;
+font-weight: bold;
+margin-bottom: 8px;
+}
+
+#strikes{
+font-size: 9.5vw;
+text-align: right;
+}
+
+.x{
+border: dashed; 
+color: black;
+font-weight: normal;
+text-align: center;
+}
+
+.gallery {
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+justify-content: flex-start;
+border: 1px outset brown;
+overflow: scroll;
+height: 580px;
+}
+
+.answer {
+width: 47.5%;
+max-width: 625px;
+min-height: 80px;
+max-height: 10.5vw;
+margin: .5vw;
+padding: 10px 0 0 0;
+border: 1px outset #363636;
+text-align: center;
+background-image: url(../img/answer.png);
+background-size: contain;
+background-position: center;
+}
+
+.answer .rank {
+font-size: 2.5rem;
+line-height: 5.0rem;
+}
+
+.hidden {
+display: none;
+}
+
+.reveal {
+float:left;
+width: 80%;
+text-align: center;
+color: white;
+font-family: "Arial Narrow", Arial, sans-serif;
+font-weight: bold;
+font-size: 2.0rem;
+line-height: 5rem;
+white-space: nowrap;
+text-transform: uppercase;
+}
+
+.points {
+float:right;
+width: 15%;
+text-align: center;
+color: yellow;
+border: 2px solid yellow;
+font-family: "Arial Narrow", Arial, sans-serif;
+font-size: 2.5rem;
+line-height: 5rem;
+}
+
+.score {
+border: dashed;
+position: absolute;
+bottom: 3vw;
+right: 2vw;
+width: 15%;
+text-align: right;
+color: white;
+background-color: black;
+padding: 10px;
+font-size: 5vw;    
+z-index: 10;
+}
