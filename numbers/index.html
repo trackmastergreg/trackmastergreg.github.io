@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="Guess the mystery number before you run out of chances.">
+    <meta name="keywords" content="numbers, guess, worlde, game">
+    <title>The Numbers Game</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/numbers.css">
+</head>
+<body>
+    <div id="ad_top" class="ads">
+		<div id="ad1" class="ad_unit"><a href="http://www.stouffers.com"><img class="ad_img" src="img/ad.jpg"></a></div>
+	</div>
+
+    <div id="header" class="top">
+		<h1 class="title">The Numbers Game</h1>
+		<h2 id="options">
+			<form>  
+			<select id="category" onchange="prepData(this.options[this.selectedIndex].value)" >  
+			<option value="misc"> Original Version </option>  
+			<option value="sports"> Sports Edition </option>  
+			</select>  
+			</form>  
+		</h2>
+	</div>
+	
+    <div id="body" class="main">
+		<h2>Today's clue: <span id="clue"></span></h2><br/>		
+		<div id="game" class="container">
+			<!-- display game board here -->
+		</div>
+		<div id="button" class="guess"><button id="guess" class="button" onclick="checkGuess()">GUESS</button></div>
+    </div>
+	
+    <div id="footer" class="bottom">
+		<h2 class="details">How To Play: Guess the mystery <span id="digits">5</span> digit number before you run out of chances. Cover up each space in the bottom row with one of the digits from its column directly above. If you get at least one new number correct after each guess you earn another attempt at solving.</h2>
+	</div>
+
+    <div id="ad_bottom" class="ads">
+		<div id="ad2" class="ad_unit"><a href="http://www.stouffers.com"><img class="ad_img" src="img/ad.jpg"></a></div>
+	</div>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/numbers.js"></script>
+</body>
+</html>
