@@ -164,7 +164,7 @@ function checkGuess() {
 			gameOver = 'Y';
 		} else if (total < 0) {
 			//setTimeout(function() {alert("Sorry, the correct answer was " + num + ". Please try again tomorrow");},10)
-			window.requestAnimationFrame(() => {window.requestAnimationFrame(()=> alert("Sorry, the correct answer was " + num + ". Please try again tomorrow"));})
+			window.requestAnimationFrame(() => {window.requestAnimationFrame(()=> alert("Sorry, the correct number was " + num));})
 			document.getElementById('guess').innerHTML = 'GAME OVER';
 			gameOver = 'Y';
 		}
