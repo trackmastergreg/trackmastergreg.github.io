@@ -159,7 +159,7 @@ function checkGuess() {
 		if (total == digits) {
 			var plural = (attempts == 1) ? '' : 's';
 			//setTimeout(function() {alert("Congratulations! You won the game in " + attempts + " turn" + plural);},10)
-			window.requestAnimationFrame(() => {window.requestAnimationFrame(()=> alert("Congratulations! You won the game in " + attempts + " turn" + plural));})
+			window.requestAnimationFrame(() => {window.requestAnimationFrame(()=> alert("Congratulations! You won in " + attempts + " turn" + plural));})
 			document.getElementById('guess').innerHTML = 'YOU WIN!';
 			gameOver = 'Y';
 		} else if (total < 0) {
