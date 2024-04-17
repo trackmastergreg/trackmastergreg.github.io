@@ -19,19 +19,19 @@
     <div id="header" class="top">
 		<div>
 		<h1 class="title">Numbers <img class="logo" src="img/logo.png"> Game</h1>
-		<h2 id="options">
+		<div class="options">
 			<form>  
 			<select id="category" onchange="prepData(this.options[this.selectedIndex].value)" >  
 			<option value="misc"> Original Version </option>  
 			<option value="sports"> Sports Edition </option>  
 			</select>  
 			</form>  
-		</h2>
-	</div>
+		</div>
+		</div>
 	</div>
 	
     <div id="body" class="main">
-		<h2>Today's clue: <span id="clue"></span></h2><br/>		
+		<h2>Today's clue: <span id="clue"></span></h2>	
 		<div id="game" class="container">
 			<!-- display game board here -->
 		</div>
