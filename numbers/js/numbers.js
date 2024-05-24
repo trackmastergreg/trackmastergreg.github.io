@@ -245,7 +245,7 @@ function loadStats() {
 		localStorage.setItem('loss', 0)
 	}
 		
-	stats = "<h1>Games Played: <span class=\"number\">" + games + "</span></h1>";
+	stats = "<h1>Games played: <span class=\"number\">" + games + "</span></h1>";
 	stats += "W - " + win + " (" + (100*win/games).toFixed(0) + "%) ";
 	stats += "L - " + loss + " (" + (100*loss/games).toFixed(0) + "%) <br/><br/>";
 	stats += "<h1>Turns to win:</h1>";
