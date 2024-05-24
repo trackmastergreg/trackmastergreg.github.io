@@ -6,7 +6,7 @@
 body {
 margin: 0;
 font-family: Helvetica, sans-serif;
-background-color: white;
+background-color: ghostwhite;
 }
 
 p, h1, h2 {border: 0; margin: 0; padding: 0;}
@@ -49,9 +49,9 @@ text-align: center;
 
 .top {
 display: flex;
-flex-direction: column;
+flex-direction: row;
 align-items: center;
-justify-content: space-evenly;
+justify-content: space-between;
 flex-wrap: nowrap;
 padding: 2.5px 0px 7.5px 0px;
 min-height: 75px;
@@ -97,7 +97,6 @@ min-height: 100px;
 color: black;
 border-top: 1px inset gray;
 border-bottom: 1px inset gray;
-//padding: 15px 0;
 }
 
 .details {
@@ -131,8 +130,8 @@ padding: 10px;
 box-sizing: border-box;
 width: calc(var(--cols)*60px);
 min-width: 300px;
-background-color: #76c1fa;
-//background: linear-gradient(180deg, #76c1fa 82.5%, black 18.5%);
+background-color: tan;
+//background-color: #76c1fa;
 }
 
 .row {
@@ -202,8 +201,58 @@ box-shadow: 0 0 7px black;
 max-height: 1.05em;
 }
 
+.lowlight {
+opacity: .75;
+}
+
+.stats {
+background-image: url("../img/stats.png");
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+background-color: #f5ef73;
+border-bottom: 1px inset gray;
+border-right: 1px inset gray;
+}
+
 .ad_unit { width: 320px; height: 40px; }
 @media(min-width: 500px) { .ad_unit { width: 468px; height: 60px; } }
 @media(min-width: 800px) { .ad_unit { width: 728px; height: 90px; } }
 
 .ad_img { max-width: 100%; }
+
+.overlay {
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+display: none;
+}
+
+.overlay-content {
+background-color: #fefefe;
+margin: 25vh auto;
+padding: 20px;
+border: 5px solid #f5ef73;
+width: 60%;
+}
+
+@media(min-width: 500px) { .overlay-content { width: 30%; margin: 25% auto; } }
+@media(min-width: 800px) { .overlay-content { width: 30%; margin: 25% auto; } }
+
+.close-btn {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close-btn:hover, .close-btn:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
