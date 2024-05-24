@@ -17,17 +17,26 @@
 	</div>
 
     <div id="header" class="top">
+		<div></div>
 		<div>
 		<h1 class="title">Numbers <img class="logo" src="img/logo.png"> Game</h1>
 		<div class="options">
 			<form>  
 			<select id="category" onchange="prepData(this.options[this.selectedIndex].value)" >  
-			<option value="misc"> Original Version </option>  
+			<option value="data"> Original Version </option>  
 			<option value="sports"> Sports Edition </option>  
 			</select>  
 			</form>  
 		</div>
 		</div>
+		<div></div>
+	</div>
+	
+	<div id="overlay" class="overlay">
+	  <div class="overlay-content">
+	    <span class="close-btn">&times;</span>
+	    <div id="overlay-message" class="overlay-message">This is an overlay message.</div>
+	  </div>
 	</div>
 	
     <div id="body" class="main">
