@@ -259,7 +259,7 @@ function loadStats() {
 }
 
 // Update game statistics in local storage
-function updateStats(result, turns) {    	
+function updateStats(result, tries) {    	
 	var games = Number(localStorage.getItem('games'));
 	games++;
 	localStorage.setItem('games', games);
@@ -269,7 +269,7 @@ function updateStats(result, turns) {
 	localStorage.setItem(result, count);
 	
 	var turns = JSON.parse(localStorage.getItem('turns'));
-	turns[attempts] = parseInt(turns[attempts])+1;	
+	turns[tries] = parseInt(turns[tries])+1;	
 	localStorage.setItem('turns', JSON.stringify(turns));
 }
 
