@@ -14,7 +14,6 @@ var structure = [
 {level: 10, minutes: 30, ante:  2000, small_blind:  1000, big_blind:  2000},
 {level: 11, minutes: 30, ante:  2500, small_blind:  1500, big_blind:  2500},
 {level: 12, minutes: 30, ante:  3000, small_blind:  1500, big_blind:  3000},
-
 {level: 13, minutes: 30, ante:  4000, small_blind:  2000, big_blind:  4000},
 {level: 14, minutes: 30, ante:  5000, small_blind:  3000, big_blind:  5000},
 {level: 15, minutes: 30, ante:  6000, small_blind:  3000, big_blind:  6000},
@@ -69,15 +68,16 @@ function calcRatio() {
     $('#m2').hide();
     $('#m1').hide();
     
+    var players = Number($('#players').val());
     var stack = Number($('#stack').val());
     var small_blind = Number($('#small_blind').val());
     var big_blind = Number($('#big_blind').val());
     var ante = Number($('#ante').val());
-    var players = Number($('#players').val());
+	var big_blind_ante = document.getElementById('big_blind_ante').checked;
 
-    var ratio = stack / (small_blind + big_blind + (ante * players));
+    var ratio = stack / (small_blind + big_blind + (ante * (big_blind_ante ? 1.0 : players)));
     var m = ratio * (players/10.0)
-
+	
     $('#ratio').val(m.toFixed(2));
     
     if (m >= 20) {
