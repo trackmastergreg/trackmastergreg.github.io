@@ -16,7 +16,7 @@
             <legend><span class= "red">&hearts;</span> &spades; Poker Tournament Wizard &clubs; <span class= "red">&diams;</span></legend>
             <p>
             <label for="level">Level</label>
-            <select id="levels" class="levels"><option>Select level</option></select>
+            <select id="levels" class="levels"><option value="0">Select level</option></select>
             </p>
             <p>
             <label for="stack">Stack</label>
@@ -24,7 +24,7 @@
             </p>
             <p>
             <label for="ante">Ante</label>
-            <input type="text" id="ante" name="ante">
+            <input type="text" id="ante" name="ante"> <input type="checkbox" id="big_blind_ante" name="big_blind_ante" checked> BB?
             </p>
             <p>
             <label for="small_blind">Small Blind</label>
@@ -37,8 +37,8 @@
             <p>
             <label for="ante">Players</label>
             <select name="players" id="players">
-            <option value="10">10</option>
-            <option value="9" selected="selected">9</option>
+            <option value="10" selected="selected">10</option>
+            <option value="9">9</option>
             <option value="8">8</option>
             <option value="7">7</option>
             <option value="6">6</option>
