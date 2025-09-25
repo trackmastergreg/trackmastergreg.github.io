@@ -57,7 +57,8 @@ border:solid 1px #BFBD9F;
 }
 
 img {
-height:12.0vw;    
+height:auto;
+max-height:100%;
 vertical-align:text-bottom;
 margin:.5px;
 }
