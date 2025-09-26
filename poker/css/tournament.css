@@ -34,7 +34,8 @@ border-bottom:2px solid gray;
 }
 
 legend{
-font-size:16px;    
+font-size:16px;
+text-align: center;
 }
 
 label{
@@ -43,7 +44,7 @@ text-align:left;
 width:135px;
 float:left;
 vertical-align:middle;
-margin-top:5px;
+margin-top:0px;
 }
 
 select{
@@ -54,13 +55,6 @@ border:solid 1px #BFBD9F;
 input{
 font-size:0.9rem;
 border:solid 1px #BFBD9F;
-}
-
-img {
-height:auto;
-max-height:100%;
-vertical-align:text-bottom;
-margin:.5px;
 }
 
 #ratio {
@@ -74,6 +68,19 @@ display:none;
 
 .red {
 color:red;
+}
+
+.line {
+width:100%;
+margin-top:10px;
+}
+
+.card {
+min-height:12vw;	
+height:auto;
+max-height:100%;
+vertical-align:text-bottom;
+margin:.5px;
 }
 
 table {
