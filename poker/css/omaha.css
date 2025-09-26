@@ -107,17 +107,13 @@ text-align:right;
 width:140px;
 }
 
-.cards {
-width:100px;
-}
-
 .red , .hearts, .diams{
 color: red;
 }
 
 table {
 width: 100%;
-font-size: 3.6vh;
+font-size: 3.0vh;
 border-spacing: 0px 0px;
 border: 1px 1px 0px 1px solid gray;
 text-align:center;
@@ -149,10 +145,17 @@ font-weight: bold;
 }
 
 #results {
-font-size: 3.0vh;
+font-size: 2.75vh;
 text-align: center;
 width: 100%;
+max-width:600px;
+margin:auto;
 margin-bottom: 6px;
+}
+
+#grid {
+max-width:600px;
+margin:auto;
 }
 
 .total, .action {
