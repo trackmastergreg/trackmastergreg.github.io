@@ -2,105 +2,102 @@ html {
 -webkit-text-size-adjust: 100%;
 }
 
-body{
+body {
 font-family: Helvetica;
 background-color: #f1f2d8;
-font-size:1.0rem;
+font-size: 1.0rem;
 }
 
-form{
-margin:auto;
-padding:5px 10px 10px 10px;
+form {
+max-width: 500px;
+margin: auto;
+padding: 5px 10px 10px 10px;
 background-color: #ffffff;
-border:solid 2px #425955;
-}
-
-p{
-margin:5px 0 10px 0;
+border: solid 2px #425955;
 }
 
 h1 {
-font-size:1.1rem;
-font-weight:bold;
-margin-top:9px;
-margin-bottom:5px;
+font-size: 1.1rem;
+font-weight: bold;
+margin-top: 9px;
+margin-bottom: 5px;
 }
 
 h3 {
-font-size:0.9rem;
-font-weight:bold;
-margin-top:18px;
-border-bottom:2px solid gray;
+font-size: 0.9rem;
+font-weight: bold;
+margin-top: 18px;
+border-bottom: 2px solid gray;
 }
 
-legend{
-font-size:16px;
+legend {
+font-size: 16px;
 text-align: center;
 }
 
-label{
-font-weight:500;
-text-align:left;
-width:35%;
-float:left;
-vertical-align:middle;
-margin-top:0px;
+label {
+font-weight: 500;
+text-align: left;
+width: 35%;
+float: left;
+vertical-align: middle;
+margin-top: 0px;
 }
 
-select{
-font-size:13px;
-border:solid 1px #BFBD9F;
+select {
+font-size: 13px;
+border: solid 1px #BFBD9F;
 }
 
-input{
-font-size:0.9rem;
-border:solid 1px #BFBD9F;
+input {
+font-size: 0.9rem;
+border: solid 1px #BFBD9F;
 }
 
 #ratio {
-margin-bottom:5px;
-color:red;
+margin-bottom: 5px;
+color: red;
 }
 
-.m_class {
-display:none;
+.m {
+display: none;
 }
 
 .red {
-color:red;
+color: red;
 }
 
 .line {
-width:100%;
-margin-top:10px;
+width: 100%;
+margin-top: 10px;
 }
 
 .card {
-width:15%;
-max-width:100px;
-height:auto;
-max-height:140px;
-vertical-align:text-bottom;
-margin:.5px;
+width: 15%;
+max-width: 100px;
+height: auto;
+max-height: 140px;
+vertical-align: text-bottom;
+margin: .5px;
 }
 
 table {
-margin-top:10px;
-width:100%;
-border-spacing:1px;
-border:1px 1px 0px 1px solid gray;
+margin-top: 10px;
+width: 100%;
+border-spacing: 1px;
+border: 1px 1px 0px 1px solid gray;
 }
 
 tr:nth-child(even) {
-background-color:white;
+background-color: white;
 }
 
 tr:nth-child(odd) {
-background-color:#e3e3e3;
+background-color: #e3e3e3;
 }
 
 td {
-padding:1px 0px 1px 0px;
-line-height:1.5rem;
-font-size:1.025rem;
+padding: 1px 0px 1px 0px;
+line-height: 1.5rem;
+font-size: 1.025rem;
 }
