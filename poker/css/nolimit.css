@@ -86,6 +86,11 @@ background-color: #e3e3e3;
 text-align: center;
 }
 
+#details td {
+line-height: 1.0rem;
+font-size: 1.0rem;
+}
+
 #details img {
 width: 15%;
 max-width: 100px;
