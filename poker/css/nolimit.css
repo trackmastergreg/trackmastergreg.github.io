@@ -31,6 +31,15 @@ text-align: center;
 margin: 20px 0 20px 0;
 }
 
+#hand img {
+width: 15%;
+max-width: 100px;
+height: auto;
+max-height: 140px;
+vertical-align: text-bottom;
+margin: .5px;
+}
+
 p {
 margin: 5px 0 5px 0;
 }
@@ -61,8 +70,8 @@ background-color: #e3e3e3;
 
 td {
 padding: 1.5px 0px 1.5px 0px;
-line-height: 1.45rem;
-font-size: 1.125rem;
+line-height: 1.5rem;
+font-size: 1.25rem;
 }
 
 #cards tr:nth-child(odd) {
