@@ -5,11 +5,12 @@ html {
 body {
 font-family: Helvetica, Arial, sans-serif;
 background-color: #f1f2d8;
+margin: auto;
 }
 
 table {
 width: 100%;
-font-size: 3.0vh;
+font-size: 2.75vh;
 border-spacing: 0px 0px;
 text-align: center;
 }
@@ -25,7 +26,7 @@ background-color: #e3e3e3;
 th {
 background-color: gray;
 vertical-align: middle;
-font-size: 5.0vh;
+font-size: 3.75vh;
 }
 
 td {
@@ -47,9 +48,7 @@ margin: auto;
 #results {
 font-size: 2.75vh;
 text-align: center;
-width: 100%;
-margin: auto;
-margin-bottom: 6px;
+margin: 5px;
 }
 
 .total {
@@ -66,7 +65,7 @@ width: 60%;
 
 .reset {
 background-color: gray !important;
-padding: 16px 4px 16px 4px;
+padding: 12px 4px 12px 4px;
 }
 
 .red , .hearts, .diams{
