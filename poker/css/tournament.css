@@ -16,6 +16,10 @@ background-color: #ffffff;
 border: solid 2px #425955;
 }
 
+p {
+margin: 5px 0 5px 0;
+}
+
 h1 {
 font-size: 1.1rem;
 font-weight: bold;
@@ -72,15 +76,6 @@ width: 100%;
 margin-top: 10px;
 }
 
-.card {
-width: 15%;
-max-width: 100px;
-height: auto;
-max-height: 140px;
-vertical-align: text-bottom;
-margin: .5px;
-}
-
 table {
 margin-top: 10px;
 width: 100%;
@@ -100,4 +95,13 @@ td {
 padding: 1px 0px 1px 0px;
 line-height: 1.5rem;
 font-size: 1.025rem;
+}
+
+#instructions img {
+width: 15%;
+max-width: 100px;
+height: auto;
+max-height: 140px;
+vertical-align: text-bottom;
+margin: .5px;
 }

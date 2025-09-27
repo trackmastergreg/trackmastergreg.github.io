@@ -2,35 +2,36 @@ html {
 -webkit-text-size-adjust: 100%;
 }
 
-body{
+body {
 font-family: Helvetica;
 background-color: #f1f2d8;
 font-size: 1.0rem;
 margin: 5px;
 }
 
-form{
+form {
+max-width: 500px;
 margin: auto;
 padding: 5px 10px 5px 10px;
 background-color:  #ffffff;
 border: solid 2px #425955;
 }
 
-legend{
+legend {
 font-size: 16px;
 text-align: center;  
 }
 
-#position{
+#position {
 font-size: 18px;
 text-align: center;  
 }
 
-#hand{
+#hand {
 margin: 20px 0 20px 0;
 }
 
-p{
+p {
 margin: 5px 0 5px 0;
 }
 
@@ -76,11 +77,13 @@ background-color: #e3e3e3;
 text-align: center;
 }
 
-img {
-height: 15.0vw;
-max-height: 100px;   
+#details img {
+width: 15%;
+max-width: 100px;
+height: auto;
+max-height: 140px;
 vertical-align: text-bottom;
-margin: 1.5px;
+margin: .5px;
 }
 
 .red {
