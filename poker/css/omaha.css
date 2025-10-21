@@ -68,6 +68,10 @@ background-color: gray !important;
 padding: 12px 4px 12px 4px;
 }
 
-.red , .hearts, .diams{
+.red , .hearts, .diams {
 color: red;
+}
+
+.suit {
+font-size: 3.33vh;
 }
