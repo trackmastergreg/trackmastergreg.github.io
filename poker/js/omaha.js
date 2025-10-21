@@ -1,4 +1,4 @@
-// This script calculates points for omaha hi-low hands
+// This script calculates points for omaha high-low hands
 var card_suits = ['diams', 'clubs', 'hearts', 'spades'], hand = [];
 var card_ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'];
 
@@ -23,10 +23,10 @@ function buildTable() {
     $('#table > tbody').html('');
     for (var i = 0, j = card_ranks.length; i < j; i++) {  
         var row = '<tr>';
-        row += '<td class="red" id="' + card_ranks[i] + 'D" onclick="pickCard(\'' + card_ranks[i] + 'D\');">' + card_ranks[i] + '&diams;</td>';
-        row += '<td id="' + card_ranks[i] + 'C" onclick="pickCard(\'' + card_ranks[i] + 'C\');">' + card_ranks[i] + '&clubs;</td>';
-        row += '<td class="red" id="' + card_ranks[i] + 'H" onclick="pickCard(\'' + card_ranks[i] + 'H\');">' + card_ranks[i] + '&hearts;</td>';
-        row += '<td id="' + card_ranks[i] + 'S" onclick="pickCard(\'' + card_ranks[i] + 'S\');">' + card_ranks[i] + '&spades;</td>';
+        row += '<td class="red" id="' + card_ranks[i] + 'D" onclick="pickCard(\'' + card_ranks[i] + 'D\');">' + card_ranks[i] + '<span class="suit">&diams;</span></td>';
+        row += '<td id="' + card_ranks[i] + 'C" onclick="pickCard(\'' + card_ranks[i] + 'C\');">' + card_ranks[i] + '<span class="suit">&clubs;</span></td>';
+        row += '<td class="red" id="' + card_ranks[i] + 'H" onclick="pickCard(\'' + card_ranks[i] + 'H\');">' + card_ranks[i] + '<span class="suit">&hearts;</span></td>';
+        row += '<td id="' + card_ranks[i] + 'S" onclick="pickCard(\'' + card_ranks[i] + 'S\');">' + card_ranks[i] + '<span class="suit">&spades;</span></td>';
         row += '</tr>';
         $('#table > tbody').append(row);
     }
