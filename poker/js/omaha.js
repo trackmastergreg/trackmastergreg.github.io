@@ -23,10 +23,10 @@ function buildTable() {
     $('#table > tbody').html('');
     for (var i = 0, j = card_ranks.length; i < j; i++) {  
         var row = '<tr>';
-        row += '<td class="red" id="' + card_ranks[i] + 'D" onclick="pickCard(\'' + card_ranks[i] + 'D\');">' + card_ranks[i] + '<b>&diams;</b></td>';
-        row += '<td id="' + card_ranks[i] + 'C" onclick="pickCard(\'' + card_ranks[i] + 'C\');">' + card_ranks[i] + '<b>&clubs;</b></td>';
-        row += '<td class="red" id="' + card_ranks[i] + 'H" onclick="pickCard(\'' + card_ranks[i] + 'H\');">' + card_ranks[i] + '<b>&hearts;</b></td>';
-        row += '<td id="' + card_ranks[i] + 'S" onclick="pickCard(\'' + card_ranks[i] + 'S\');">' + card_ranks[i] + '<b>&spades;</b></td>';
+        row += '<td class="red" id="' + card_ranks[i] + 'D" onclick="pickCard(\'' + card_ranks[i] + 'D\');">' + card_ranks[i] + '&diams;</td>';
+        row += '<td id="' + card_ranks[i] + 'C" onclick="pickCard(\'' + card_ranks[i] + 'C\');">' + card_ranks[i] + '&clubs;</td>';
+        row += '<td class="red" id="' + card_ranks[i] + 'H" onclick="pickCard(\'' + card_ranks[i] + 'H\');">' + card_ranks[i] + '&hearts;</td>';
+        row += '<td id="' + card_ranks[i] + 'S" onclick="pickCard(\'' + card_ranks[i] + 'S\');">' + card_ranks[i] + '&spades;</td>';
         row += '</tr>';
         $('#table > tbody').append(row);
     }
