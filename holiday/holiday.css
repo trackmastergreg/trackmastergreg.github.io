@@ -4,6 +4,7 @@ body, p, div {
 }
 body {
     color: #000000;
+	background: ghostwhite;
 }
 body a {
     color: #1188E6;
@@ -68,7 +69,7 @@ img.max-width {
 .header {
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: #fbf7f5;
     padding: 10px 15px 10px 15px; 
 }
 .header-image {
@@ -77,16 +78,15 @@ img.max-width {
 }
 .greeting {
     font-size: 30px; 
-    color: gold; 
-    /*color: red;*/
+    color: #1E792C;
     font-style: oblique;
     font-weight: 900;
+	text-shadow: 1px 1px 2px #c60f0f;
 }
 .main{
     padding: 15px; 
     text-align: center; 
-    /*background-color: #739e86;*/
-    background-color: brown
+    background-color: #c60f0f;
 }
 .main-image{
     max-width: 95%;
@@ -94,7 +94,7 @@ img.max-width {
     margin-bottom: 10px; 
 }
 .message {
-    color: #ffffff; 
+    color: #fbf7f5; 
     font-size: 28px; 
     line-height: 28px; 
 }
@@ -102,9 +102,8 @@ img.max-width {
     padding: 10px 20px 10px 20px; 
     line-height: 20px; 
     text-align: inherit; 
-    background-color: cream;
-    /*color: #c64f4f;*/
-    color: brown;
+    background-color: #fbf7f5;
+    color: #1E792C;
     font-size: 14px;
 }
 .title {
@@ -113,17 +112,18 @@ img.max-width {
 }
 .first-letter {
     font-size: 200%;
-    color: gold;
+    color: #c60f0f;
     font-style: italic;
 }
 .photos {
     padding: 20px 0 15px 0; 
 }
 .signature {
-    font-size: 32px;
     font-style: oblique;
+    font-size: 32px;
     font-weight: 900;
     line-height: 1.2;
+	color: #c60f0f;
 }
 .divider {
     margin: 0 25px 5px 25px; 
