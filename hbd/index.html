@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 38th Birthday!</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffe6f0, #fff);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #d63384;
+  margin-top: 20px;
+}
+
+img {
+  max-height: 35vh;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.doors {
+  display: flex;
+  justify-content: center;
+  gap: 80px; /* more space between doors */
+  margin-top: 30px;
+}
+
+.door-container {
+  perspective: 1200px;
+}
+
+.door {
+  width: 120px;
+  height: 180px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  cursor: pointer;
+}
+
+/* LEFT door (Door 1) */
+#door1 {
+  transform-origin: left;
+}
+
+#door1.open {
+  transform: rotateY(-180deg);
+}
+
+/* RIGHT door (Door 2) */
+#door2 {
+  transform-origin: right;
+}
+
+#door2.open {
+  transform: rotateY(180deg);
+}
+
+.door-front, .door-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.door-front {
+  background: #ff99cc;
+  color: white;
+  font-size: 18px;
+}
+
+/* IMPORTANT: flip directions must match */
+#door1 .door-back {
+  transform: rotateY(180deg);
+}
+
+#door2 .door-back {
+  transform: rotateY(-180deg);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #333;
+  min-height: 60px;
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  opacity: 0.8;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Happy 38th Birthday, My Love ❤️</h1>
+<p>If only we could turn back the clock to our younger days and be as carefree as this happy couple. You light up my life like a birthday candle, I wish I could give you the moon and stars.<br><br> Instead pick a door to reveal one of two birthday present options!</p>
+
+<img src="photo.jpg" alt="Us together">
+
+<div class="doors">
+  <div class="door-container">
+    <div class="door" id="door1" onclick="openDoor(1)">
+      <div class="door-front">Door 1</div>
+      <div class="door-back" id="prize1"></div>
+    </div>
+  </div>
+
+  <div class="door-container">
+    <div class="door" id="door2" onclick="openDoor(2)">
+      <div class="door-front">Door 2</div>
+      <div class="door-back" id="prize2"></div>
+    </div>
+  </div>
+</div>
+
+<div class="result" id="result"></div>
+
+<audio id="drumroll" src="https://www.soundjay.com/misc/sounds/drum-roll-1.mp3"></audio>
+
+<script>
+let firstPick = true;
+let prizesAssigned = false;
+let openedDoors = 0;
+let prizes = [];
+
+function assignPrizes() {
+  prizes = [
+    "💆‍♀️ Thunder Valley Spa Day!",
+    "🎤 Carrie Underwood Tickets!"
+  ];
+  prizes.sort(() => Math.random() - 0.5);
+
+  document.getElementById("prize1").innerHTML = prizes[0];
+  document.getElementById("prize2").innerHTML = prizes[1];
+
+  prizesAssigned = true;
+}
+
+function openDoor(num) {
+  const door = document.getElementById("door" + num);
+
+  if (!prizesAssigned) assignPrizes();
+  if (door.classList.contains("open")) return;
+
+  if (firstPick) {
+    firstPick = false;
+    document.getElementById("drumroll").play();
+    document.getElementById("result").innerHTML = "Drumroll please... 🥁";
+
+    setTimeout(() => {
+      door.classList.add("open");
+      openedDoors++;
+
+      document.getElementById("result").innerHTML =
+        "You chose Door " + num + "! 🎉<br><br>That prize is yours ❤️<br><br>Go ahead... open the other one to see what you missed out on 👀";
+
+    }, 2000);
+
+  } else {
+    door.classList.add("open");
+    openedDoors++;
+
+    if (openedDoors === 2) {
+      setTimeout(() => {
+        document.getElementById("result").innerHTML =
+          "WAIT... plot twist if only we weren't broke ...😄<br><br><strong>You get BOTH prizes!! 💖🎉</strong>";
+
+        launchConfetti();
+      }, 800);
+    }
+  }
+}
+
+function launchConfetti() {
+  for (let i = 0; i < 100; i++) {
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      ["#ff4d6d", "#ff99cc", "#ffc107", "#28a745", "#17a2b8"][Math.floor(Math.random()*5)];
+    confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
