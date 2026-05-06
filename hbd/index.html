@@ -38,8 +38,8 @@ img {
 }
 
 .door {
-  width: 120px;
-  height: 180px;
+  width: 240px;
+  height: 340px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s ease;
@@ -189,7 +189,7 @@ function openDoor(num) {
     if (openedDoors === 2) {
       setTimeout(() => {
         document.getElementById("result").innerHTML =
-          "WAIT... plot twist if only we weren't broke ...😄<br><br><strong>You get BOTH prizes!! 💖🎉</strong>";
+          "WAIT... plot twist if we weren't broke ...😄<br><br><strong>You could get BOTH prizes!! 💖🎉</strong>";
 
         launchConfetti();
       }, 800);
