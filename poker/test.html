@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omaha Hi/Lo Analyzer</title>
+<style>
+:root{--bg:#f6f5f1;--fg:#1d1d1b;--mut:#6b6a64;--card:#fff;--bd:#dcdad2;--acc:#1b6b4a;--red:#c8262e;--bad:#b4451f;--ink:#1d1d1b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141816;--fg:#ecebe5;--mut:#9a9990;--card:#1e2421;--bd:#343b37;--acc:#4cc38a;--red:#ff6b6b;--bad:#ff9a6b;--ink:#ecebe5}}
+:root[data-theme="dark"]{--bg:#141816;--fg:#ecebe5;--mut:#9a9990;--card:#1e2421;--bd:#343b37;--acc:#4cc38a;--red:#ff6b6b;--bad:#ff9a6b;--ink:#ecebe5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:780px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 12px}h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+label{font-size:12px;color:var(--mut);display:flex;flex-direction:column;gap:3px}
+input,select{font:inherit;padding:7px 9px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg);width:96px}
+button{font:inherit;font-weight:600;padding:9px 16px;border:0;border-radius:8px;background:var(--acc);color:#fff;cursor:pointer}
+.c{display:inline-block;min-width:44px;text-align:center;padding:8px 4px;margin:2px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--ink);font-weight:700;font-size:20px}
+.c.r{color:var(--red)}.sm .c{min-width:34px;padding:3px 2px;font-size:14px;margin:1px}
+.hands{display:flex;flex-wrap:wrap;gap:22px}
+.big{display:flex;flex-wrap:wrap;gap:18px}.big div{min-width:120px}.big b{display:block;font-size:26px}.big span{font-size:12px;color:var(--mut)}
+.pos{color:var(--acc)}.neg{color:var(--bad)}
+.bar{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:6px 0;background:var(--bd)}
+.bar i{display:block}
+.leg{font-size:12px;color:var(--mut);display:flex;flex-wrap:wrap;gap:4px 14px}
+.g{border-top:1px solid var(--bd);padding:10px 0}.g:first-of-type{border-top:0}
+.g h3{margin:0;font-size:15px}.g p{margin:2px 0 4px;font-size:13px;color:var(--mut)}
+.tag{font-size:11px;font-weight:700;padding:1px 7px;border-radius:9px;background:var(--acc);color:#fff;margin-left:6px;vertical-align:middle}
+.tag.n{background:var(--bd);color:var(--fg)}.tag.b{background:var(--bad)}
+ul{margin:4px 0 0;padding-left:18px}li{margin:3px 0}
+button.s{background:var(--card);color:var(--fg);border:1px solid var(--bd)}
+.eqg{display:flex;flex-wrap:wrap;gap:4px}.eqc{display:flex;flex-direction:column;align-items:center;text-align:center}.eqc small{font-size:11px;line-height:1.2;color:var(--mut)}.eqc.up small{color:var(--acc);font-weight:700}.eqc.dn small{color:var(--bad)}.sm .c{cursor:pointer}
+.calc{font-size:13px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:6px 9px;margin:4px 0 6px}
+.pkc{padding:12px 6px}.pkc>summary{padding-left:8px}@media (max-width:480px){main{padding:10px}}.pk{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.pk .c{min-width:0;height:33px;margin:0;padding:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;cursor:pointer;opacity:1;background:var(--card);border-color:var(--mut)}.pk .c.h{outline:2px solid var(--acc);background:var(--bd)}.pk .c.b{outline:2px solid #d6b86b;background:var(--bd)}summary{cursor:pointer}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0 12px}.hd h1{margin:0}.hd label{flex-direction:row;align-items:center;gap:6px;white-space:nowrap}.hd select{width:auto;padding:6px}
+.btns{float:right;display:flex;gap:6px;margin-top:-5px}.btns button{min-width:72px;padding:7px 0;font-size:14px}.btns select{width:54px;padding:7px 2px;font-size:14px;color:var(--ink)}details.card>summary::after{content:"";display:block;clear:both}
+.top{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}.top button{padding:9px 12px;white-space:nowrap}.top .dl{flex:1}.top label{flex-direction:row;align-items:center;gap:6px;white-space:nowrap}.top select{width:auto;padding:7px 6px}
+.hb .c{min-width:28px;height:38px;padding:0;margin:2px 3px;font-size:16px;line-height:1;display:inline-flex;align-items:center;justify-content:center}.hb .hands{gap:16px;flex-wrap:wrap}.hb h2{margin-bottom:4px}
+summary h2{display:inline;margin:0}details.card>summary{list-style-position:inside}details.card[open]>summary{margin-bottom:8px}
+.pts{display:flex;justify-content:flex-end;padding:0}.act{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:50px;height:38px;margin:2px;color:#fff;line-height:1;border:1px solid var(--bd);border-radius:8px}.act b{position:relative;font-size:15px}.act i{position:relative;font-style:normal;font-size:8px;font-weight:700;letter-spacing:.05em;margin-top:2px}.act.fold{background:#d64545}.act.play{background:#2f9e6b}.act.raise{background:linear-gradient(135deg,#fff2a6 0%,#f5c431 38%,#d9a006 70%,#f7d96a 100%);color:#3a2a00;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}.tag.p{background:#d6b86b;color:#222}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;border:1px solid var(--mut)}
+.note{font-size:12px;color:var(--mut)}
+</style>
+</head>
+<body>
+<main>
+<div class="hd"><h1>♠ Omaha Hi/Lo Analyzer</h1></div>
+<details class="card pkc" open><summary><h2>CARDS</h2><span class="btns"><button id="deal">Deal</button><button id="nh" class="s">Reset</button><select id="opp" aria-label="Players"><option value="8" selected disabled>👤︎</option><option value="1">2</option><option value="2">3</option><option value="3">4</option><option value="4">5</option><option value="5">6</option><option value="6">7</option><option value="7">8</option><option value="8">9</option></select></span></summary><div id="grid" class="pk" style="margin-top:10px"></div></details>
+<div class="card hb"><div class="hands"><div><h2>Hand</h2><div id="hand"></div></div><div><h2>Board</h2><div id="flop"></div></div><div style="margin-left:auto;text-align:right"><h2 id="acth">Action</h2><div id="pts" class="pts" style="justify-content:flex-end"></div></div></div></div>
+<div id="out"></div>
+<p class="note">Opponents are simulated with random hands, with results as a baseline rather than real ranges. EV = chance to hit × share of the pot (½ for a half-pot draw, 1 for a scoop).</p>
+</main>
+<script>
+const RL="  23456789TJQKA",SY=["♠","♥","♦","♣"],CATS=["High card","Pair","Two pair","Trips/set","Straight","Flush","Full house","Quads","Straight flush"];
+const R=c=>c%13+2,S=c=>(c/13)|0;
+const chip=c=>`<span data-c="${c}" class="c ${S(c)==1||S(c)==2?"r":""}">${RL[R(c)]}${SY[S(c)]}</span>`;
+const mk=(n,k)=>{const o=[];(function r(s,cur){if(cur.length==k){o.push(cur.slice());return}for(let i=s;i<n;i++){cur.push(i);r(i+1,cur);cur.pop()}})(0,[]);return o};
+const P4=mk(4,2),T={3:mk(3,3),4:mk(4,3),5:mk(5,3)},X=[0,0,0,0,0],cnt=new Int8Array(15);
+function hi5(x){cnt.fill(0);let fl=true;const s0=S(x[0]);for(let i=0;i<5;i++){cnt[R(x[i])]++;if(S(x[i])!==s0)fl=false}
+const g=[];for(let r=14;r>=2;r--)if(cnt[r])g.push(cnt[r]*20+r);g.sort((a,b)=>b-a);let rk=g.map(v=>v%20);
+let st=false;if(rk.length==5){if(rk[0]-rk[4]==4)st=true;else if(rk[0]==14&&rk[1]==5){st=true;rk=[5,4,3,2,1]}}
+const c0=(g[0]/20)|0,c1=g[1]?(g[1]/20)|0:0;
+const cat=st&&fl?8:c0==4?7:c0==3&&c1==2?6:fl?5:st?4:c0==3?3:c0==2&&c1==2?2:c0==2?1:0;
+let t=0;for(let i=0;i<5;i++)t=t*15+(rk[i]||0);return cat*759375+t}
+function lo5(x){let m=0,t=0;for(let i=0;i<5;i++){let r=R(x[i]);if(r==14)r=1;if(r>8||(m&(1<<r)))return -1;m|=1<<r}
+for(let r=8;r>=1;r--)if(m&(1<<r))t=t*9+r;return t}
+const fill=(h0,h1,b,t)=>{X[0]=h0;X[1]=h1;X[2]=b[t[0]];X[3]=b[t[1]];X[4]=b[t[2]]};
+function evalH(h,b){let bh=-1,bl=1e9;const T3=T[b.length];for(const p of P4)for(const t of T3){fill(h[p[0]],h[p[1]],b,t);const v=hi5(X);if(v>bh)bh=v;const l=lo5(X);if(l>0&&l<bl)bl=l}return[bh,bl>1e8?-1:bl]}
+function nuts(b,rem){let H=-1,L=1e9;const T3=T[b.length];for(let i=0;i<rem.length;i++)for(let j=i+1;j<rem.length;j++)for(const t of T3){fill(rem[i],rem[j],b,t);const v=hi5(X);if(v>H)H=v;const l=lo5(X);if(l>0&&l<L)L=l}return[H,L>1e8?-1:L]}
+const lowStr=t=>{const a=[];for(let i=0;i<5;i++){a.push(t%9);t=(t/9)|0}return a.reverse().map(r=>r==1?"A":r).join("-")};
+const boardLow=b=>{const s=new Set();b.forEach(c=>{const r=R(c)==14?1:R(c);if(r<=8)s.add(r)});return s.size>=3};
+let hero,flop,unseen;
+function deal(){const d=[...Array(52).keys()];for(let i=51;i>0;i--){const j=Math.random()*(i+1)|0;[d[i],d[j]]=[d[j],d[i]]}
+hero=d.slice(0,4).sort((a,b)=>R(b)-R(a));flop=d.slice(4,7).sort((a,b)=>R(b)-R(a));const u=new Set(d.slice(0,7));unseen=d.filter(c=>!u.has(c)).length?[...Array(52).keys()].filter(c=>!u.has(c)):[];
+document.getElementById("hand").innerHTML=hero.map(chip).join("");turn=river=null;ph=[];pb=[];pkr();document.querySelector("details.pkc").open=false;analyze()}
+function texture(){const sc=[0,0,0,0],rs=flop.map(R).sort((a,b)=>a-b);flop.forEach(c=>sc[S(c)]++);const m=Math.max(...sc),lows=new Set(flop.map(c=>R(c)==14?1:R(c)).filter(r=>r<=8)).size;
+const L=[];L.push(m==3?"Monotone: any flush draw is live and a flush is already possible for opponents.":m==2?"Two-tone: flush draws are possible.":"Rainbow: no flush is possible on the flop.");
+const pr=new Set(rs).size<3;L.push(pr?"Paired board: full houses and quads are possible, and the board offers fewer distinct low cards.":"Unpaired board.");
+const sp=rs[2]-rs[0];L.push(sp<=4?"Connected board: straights are a real threat.":"Disconnected: straights are less likely.");
+L.push(lows>=3?"Three low cards: a low is already possible, so expect the pot to split.":lows==2?"Two low cards: a low is likely to qualify if one more low card arrives, so the pot is often split.":lows==1?"One low card: a low needs two more low cards, so the pot is less likely to be split.":"No low cards: the low is almost dead, so high hands play for the full pot.");return L}
+const fmt=n=>(n<0?"-$":"$")+Math.abs(n).toFixed(0),pc=n=>(n*100).toFixed(1)+"%";
+let turn=null,river=null;
+const board=()=>[...flop,...(turn!=null?[turn]:[]),...(river!=null?[river]:[])];
+const unseenNow=()=>{const u=new Set([...hero,...board()]);return[...Array(52).keys()].filter(c=>!u.has(c))};
+function pts(h){const rk=h.map(R),lr=rk.map(r=>r==14?1:r),su=h.map(S);
+const u=[...new Set(lr)].sort((a,b)=>a-b);
+const T1={"1-2":20,"1-3":17,"1-4":13,"1-5":10,"2-3":15,"2-4":12,"3-4":11,"4-5":8};
+let s1=0;const used=new Set();
+if(u.length>=2){s1=T1[u[0]+"-"+u[1]]||0;used.add(u[0]);used.add(u[1])}
+const rem=[...h].sort((a,b)=>(R(a)==14?1:R(a))-(R(b)==14?1:R(b)));
+const skip=[];let rc=rem.slice();
+for(const x of u.slice(0,2)){const i=rc.findIndex(c=>(R(c)==14?1:R(c))==x);if(i>=0)rc.splice(i,1)}
+const T2={3:9,4:6,5:4,6:1,10:1,11:2,12:2,13:2};let s2=0;
+for(const c of rc){const lrk=R(c)==14?1:R(c);if(used.has(lrk))continue;used.add(lrk);s2+=T2[R(c)]||0}
+const cnt={};rk.forEach(r=>cnt[r]=(cnt[r]||0)+1);const cv=Object.values(cnt);
+const T3={14:8,13:6,12:5,11:2,10:1,4:1,3:1,2:3};let s3=0;
+if(!cv.includes(4)){for(const r in cnt)if(cnt[r]>=2)s3+=T3[r]||0;if(cv.includes(3))s3/=2}
+const sc=[0,0,0,0];su.forEach(x=>sc[x]++);const T4={14:4,13:3,12:2,11:2,10:1,9:1,8:1};let s4=0;
+if(!sc.includes(4)){for(let k=0;k<4;k++)if(sc[k]>=2){const hi=Math.max(...h.filter(c=>S(c)==k).map(R));s4+=T4[hi]||0}if(sc.includes(3))s4/=2}
+let t=s1+s2+s3+s4,auto=false;
+if(rk.every(r=>r>=10)&&!cv.includes(3)&&!cv.includes(4)){const pairs=cv.filter(x=>x==2).length,ds=sc.filter(x=>x==2).length;
+if((pairs==2||(pairs==1&&sc.some(x=>x>=2))||ds==2)&&t<20){t=20;auto=true}}
+return{t,s1,s2,s3,s4,auto}}
+function ptsRender(h=hero){const e=document.getElementById("pts"),H=document.getElementById("acth");if(!h||h.length!=4){e.innerHTML="";H.textContent="Action";return}
+const p=pts(h),a=p.t>=30?"RAISE":p.t>=20?"PLAY":"FOLD",cl=p.t>=30?"tag":p.t>=20?"tag p":"tag b";
+e.innerHTML=`<span class="act ${a.toLowerCase()}"><b>${p.t}</b><i>${a}</i></span>`}
+let rvJob=0;
+function strPossible(b5,rem){const br=new Set(b5.map(R)),rc=new Set(rem.map(R)),has=r=>br.has(r==1?14:r),inR=r=>rc.has(r==1?14:r);
+for(let lo=1;lo<=10;lo++){const win=[0,1,2,3,4].map(i=>lo+i),P=win.filter(has);if(P.length<3)continue;
+for(let a=0;a<P.length;a++)for(let b=a+1;b<P.length;b++)for(let c=b+1;c<P.length;c++){const u=[P[a],P[b],P[c]];if(win.filter(r=>!u.includes(r)).every(inR))return true}}return false}
+function hiNut(b5,rem,h1,cat1){for(let s=0;s<4;s++){let bc=0,rc=0;for(const c of b5)if(S(c)==s)bc++;if(bc>=3){for(const c of rem)if(S(c)==s)rc++;if(rc>=2&&cat1<5)return false}}
+if(cat1<4&&strPossible(b5,rem))return false;const T5=T[5];
+for(let i=0;i<rem.length;i++)for(let k=i+1;k<rem.length;k++)for(const t of T5){fill(rem[i],rem[k],b5,t);if(hi5(X)>h1)return false}return true}
+function lowBeaten(b5,lr,l1){const T5=T[5];for(let i=0;i<lr.length;i++)for(let k=i+1;k<lr.length;k++)for(const t of T5){fill(lr[i],lr[k],b5,t);const l=lo5(X);if(l>0&&l<l1)return true}return false}
+function outsHTML(G,N,stage,lowQ,V){const rows={};for(const k in G)rows[k]={...G[k],n:0,rr:0};
+if(V)for(const k in V.rows){const v=V.rows[k];rows[k]=rows[k]||{type:v.type,label:v.label,nut:v.nut,k,cards:[]};rows[k].n=v.n;rows[k].rr=v.rr}
+const order={scoop:0,hi:1,lo:2,bad:3},gs=Object.values(rows).sort((a,b)=>order[a.type]-order[b.type]||(a.type=="hi"?+b.k[1]-+a.k[1]:0)||b.nut-a.nut||(V?b.n-a.n:b.cards.length-a.cards.length));
+const share={scoop:"Wins BOTH halves of the pot.",hi:`Wins the HIGH half. Worth ½ pot if a low qualifies (${pc(lowQ)} of runouts), the full pot if not.`,lo:"Wins the LOW half (½ pot), and you may chop it if someone holds the same low. Scoops only if you also hold the best high.",bad:"A board card pairs your low cards, so your low gets worse or disappears."};
+let h="<h2>Outs calculations</h2>";if(!gs.length)h+="<p>No improving cards found.</p>";
+for(const g of gs){const o=g.cards.length,sf=g.type=="scoop"?1:.5;g.cards.sort((a,b)=>R(b)-R(a));let calc,sub="";
+if(!V){const t=o/N,hit=stage==3?1-(N-o)*(N-1-o)/(N*(N-1)):t;calc=stage==3?"Calculating by the river…":g.type=="bad"?`${o} counterfeit cards → ${pc(hit)} chance one lands on the river`:`${o} outs → <b>${pc(hit)}</b> to hit on the river × ${sf==1?"1":"½"} pot = <b>${pc(hit*sf)} of the pot</b>`}
+else{calc=g.type=="bad"?`<b>${pc(g.n/V.tot)}</b> of runouts spoil your low by the river`:`<b>${pc(g.n/V.tot)}</b> to hit by the river × ${sf==1?"1":"½"} pot = <b>${pc(g.n/V.tot*sf)} of the pot</b>`;if(g.rr)sub=`<b>${pc(g.rr/V.tot)}</b> of runouts need both cards`}
+h+=`<div class="g"><h3>${g.label}${o?`: ${o} out${o>1?"s":""}`:""}${g.type=="bad"?'<span class="tag b">risk</span>':g.nut?'<span class="tag">nuts</span>':'<span class="tag n">not nuts</span>'}</h3>
+<p>${share[g.type]}${g.type!="bad"&&!g.nut&&g.type!="scoop"?" Could still lose to a better hand.":""} </p><div class="calc">${calc}</div>${sub?`<p>${sub}</p>`:""}${o?`<div class="sm">${g.cards.map(chip).join("")}</div>`:""}</div>`}
+return h}
+function startRiver(H,F,un,G,N,lowQ){const id=++rvJob,[h0,l0]=evalH(H,F),cat0=(h0/759375)|0,single={};
+for(const c of un){const[h,l]=evalH(H,[...F,c]);single[c]={cat:(h/759375)|0,low:l>0,l}}
+const prs=[];for(let i=0;i<un.length;i++)for(let k=i+1;k<un.length;k++)prs.push([un[i],un[k]]);
+const rows={},tot=prs.length;let idx=0;
+const add=(k,o,rr)=>{const r=rows[k]=rows[k]||{...o,k,n:0,rr:0};r.n++;if(rr)r.rr++};
+function step(){if(id!==rvJob)return;const end=Math.min(idx+40,tot);
+for(;idx<end;idx++){const[t,r]=prs[idx],b5=[...F,t,r],rem=un.filter(x=>x!=t&&x!=r),[h1,l1]=evalH(H,b5),cat1=(h1/759375)|0,sc=single[t],sr=single[r];
+const ln=l1>0&&!lowBeaten(b5,rem.filter(c=>R(c)<=8||R(c)==14),l1);let hn=null;const gh=()=>hn===null?(hn=hiNut(b5,rem,h1,cat1)):hn;
+if(cat1>cat0){const n=gh();add("h"+cat1+n,{type:"hi",label:"Improves to "+CATS[cat1].toLowerCase(),nut:n},!(sc.cat>=cat1||sr.cat>=cat1))}
+if(l0<0&&l1>0)add("lm"+ln,{type:"lo",label:"Makes a low",nut:ln},!(sc.low||sr.low));
+else if(l0>0&&l1>0&&l1<l0)add("li"+ln,{type:"lo",label:"Improves your low",nut:ln},!((sc.low&&sc.l<l0)||(sr.low&&sr.l<l0)));
+if(l0>0&&(l1<0||l1>l0))add("bad",{type:"bad",label:"Counterfeits your low",nut:false},false);
+if(ln&&gh())add("s",{type:"scoop",label:"Nut high + nut low",nut:true},false)}
+if(idx<tot)setTimeout(step,0);else{const el=document.getElementById("oc");if(id===rvJob&&el)el.innerHTML=outsHTML(G,N,3,lowQ,{rows,tot})}}
+setTimeout(step,0)}
+function analyze(){rvJob++;ptsRender();if(!hero||!hero.length||!flop||flop.length<3){document.getElementById("out").innerHTML="";return}lab();document.getElementById("out").innerHTML='<div class="card">Analyzing…</div>';setTimeout(run,20)}
+function mc(b,opps,SIMS,un){const miss=5-b.length,need=miss+4*opps,d=un.slice();let sh=0,lowEx=0,bl=0,hW=0,hT=0,hL=0,lW=0,lT=0,lN=0,sHi=0,sLo=0;const beat={};const bins={scoop:0,hi:0,lo:0,chop:0,lose:0};
+for(let s=0;s<SIMS;s++){for(let i=0;i<need;i++){const j=i+(Math.random()*(d.length-i)|0),t=d[i];d[i]=d[j];d[j]=t}
+const bb=miss?[...b,...d.slice(0,miss)]:b;if(boardLow(bb))bl++;const pl=[evalH(hero,bb)];for(let k=0;k<opps;k++)pl.push(evalH(d.slice(miss+4*k,miss+4*k+4),bb));
+let H=-1,L=1e9,nH=0,nL=0;for(const p of pl){if(p[0]>H)H=p[0];if(p[1]>0&&p[1]<L)L=p[1]}
+for(const p of pl){if(p[0]==H)nH++;if(p[1]==L)nL++}const lex=L<1e8;if(lex)lowEx++;
+const iH=pl[0][0]==H,iL=lex&&pl[0][1]==L;let share=0;if(!lex){if(iH)share=1/nH}else{if(iH)share+=.5/nH;if(iL)share+=.5/nL}
+sh+=share;const hs=iH&&nH==1,ls=iL&&nL==1;
+if(iH){if(nH==1)hW++;else hT++;sHi+=(lex?.5:1)/nH}else{hL++;const bc=(H/759375)|0;beat[bc]=(beat[bc]||0)+1}
+if(lex){if(iL){if(nL==1)lW++;else lT++;sLo+=.5/nL}else lN++}
+if(hs&&(!lex||ls))bins.scoop++;else if(hs&&!iL)bins.hi++;else if(iL&&ls&&!iH)bins.lo++;else if(share>0)bins.chop++;else bins.lose++}
+return{eq:sh/SIMS,bins,lowQ:lowEx/SIMS,bl:bl/SIMS,hW,hT,hL,lW,lT,lN,beat,sHi:sHi/SIMS,sLo:sLo/SIMS}}
+function run(){if(!hero||!hero.length)return;const b=board(),un=unseenNow(),stage=b.length,N=un.length,opps=+document.getElementById("opp").value;
+document.getElementById("flop").innerHTML=b.map((c,i)=>(i==3||i==4?'<span style="margin-left:10px"></span>':"")+chip(c)).join("");
+const [h0,l0]=evalH(hero,b),[nh0,nl0]=nuts(b,un),cat0=(h0/759375)|0,hn0=h0>=nh0,ln0=l0>0&&(nl0<0||l0<=nl0);
+const G={};const add=(k,type,label,nut,c)=>{(G[k]=G[k]||{type,label,nut,cards:[],k}).cards.push(c)};
+if(stage<5)for(const c of un){const nb=[...b,c],rem=un.filter(x=>x!=c),[h1,l1]=evalH(hero,nb),[nh,nl]=nuts(nb,rem),cat1=(h1/759375)|0;
+const hn=h1>=nh,ln=l1>0&&(nl<0||l1<=nl);
+if(hn&&ln)add("s","scoop","Nut high + nut low",true,c);
+if(cat1>cat0)add("h"+cat1+hn,"hi","Improves to "+CATS[cat1].toLowerCase(),hn,c);
+if(l0<0&&l1>0)add("lm"+ln,"lo","Makes a low",ln,c);
+else if(l0>0&&l1>0&&l1<l0)add("li"+ln,"lo","Improves your low",ln,c);
+if(l0>0&&(l1<0||l1>l0))add("bad","bad","Counterfeits your low",false,c)}
+
+const SIMS=opps>5?3000:5000,M=mc(b,opps,SIMS,un),eq=M.eq,bins=M.bins,lowQ=M.lowQ;
+const stg=stage==3?"flop to showdown, turn and river combined":stage==4?"turn to showdown, includes the river":"final board";
+let h=`<div class="card"><h2>Expected value</h2><div class="big">
+<div><b>${pc(eq)}</b><span>simulated EV (share of the pot)</span></div>
+<div><b>${pc(lowQ)}</b><span>pot split (a low qualifies)</span></div></div>
+<div class="bar">${[["scoop","var(--acc)"],["hi","#7bb8a0"],["lo","#8fa7d6"],["chop","#d6b86b"],["lose","var(--bd)"]].map(([k,c])=>`<i style="width:${bins[k]/SIMS*100}%;background:${c}"></i>`).join("")}</div>
+<div class="leg"><span><i class="dot" style="background:var(--acc)"></i>Scoop ${pc(bins.scoop/SIMS)}</span><span><i class="dot" style="background:#7bb8a0"></i>High half ${pc(bins.hi/SIMS)}</span><span><i class="dot" style="background:#8fa7d6"></i>Low half ${pc(bins.lo/SIMS)}</span><span><i class="dot" style="background:#d6b86b"></i>Tied/chopped ${pc(bins.chop/SIMS)}</span><span><i class="dot" style="background:var(--bd)"></i>No share ${pc(bins.lose/SIMS)}</span></div>
+</div>`;
+{const Q=SIMS,P=n=>pc(n/Q),bk=Object.entries(M.beat).sort((a,b)=>b[1]-a[1]);
+h+=`<div class="card"><h2>EV details</h2>
+<div class="g"><h3>${pc(eq)} of equity</h3><p>High half <b>${pc(M.sHi)}</b> of the pot + low half <b>${pc(M.sLo)}</b> of the pot.</p></div>
+<div class="g"><h3>High half</h3><p>Win outright <b>${P(M.hW)}</b> · tie <b>${P(M.hT)}</b> · lose <b>${P(M.hL)}</b></p>${M.hL?`<p>When you lose the high, the winning hand is: ${bk.map(([c,v])=>CATS[c].toLowerCase()+" <b>"+pc(v/M.hL)+"</b>").join(", ")}.</p>`:""}</div>
+<div class="g"><h3>Low half</h3><p>Win outright <b>${P(M.lW)}</b> · tie <b>${P(M.lT)}</b> · lose <b>${P(M.lN)}</b></p><p>A low qualifies in <b>${pc(lowQ)}</b> of runouts, high hand takes the whole pot <b>${pc(1-lowQ)}</b> of the time.</p></div></div>`}
+if(stage<5)h+=`<div class="card" id="oc">${outsHTML(G,N,stage,lowQ,null)}</div>`;
+else h+='<div class="card">All five board cards are out. Deal a new hand to keep practicing.</div>';
+document.getElementById("out").innerHTML=h;if(stage==3)startRiver(hero,b,un,G,N,lowQ)}
+const dl=document.getElementById("deal");
+function lab(){dl.textContent="Deal"}
+dl.onclick=deal;
+document.getElementById("nh").onclick=()=>{rvJob++;document.getElementById("opp").selectedIndex=0;hero=[];flop=[];turn=river=null;ph=[];pb=[];document.getElementById("hand").innerHTML="";document.getElementById("flop").innerHTML="";document.getElementById("out").innerHTML="";ptsRender();pkr();document.querySelector("details.pkc").open=true};
+["opp"].forEach(i=>document.getElementById(i).onchange=analyze);
+let ph=[],pb=[];
+function pkr(){document.getElementById("grid").innerHTML=[14,2,3,4,5,6,7,8,9,10,11,12,13].map(r=>[2,3,1,0].map(s=>{const c=r-2+13*s;return`<span data-p="${c}" class="c${s==1||s==2?" r":""}${ph.includes(c)?" h":pb.includes(c)?" b":""}">${RL[r]}${SY[s]}</span>`}).join("")).join("")}
+function applyPick(){if(ph.length==4&&pb.length>=3){hero=[...ph].sort((a,b)=>R(b)-R(a));flop=pb.slice(0,3).sort((a,b)=>R(b)-R(a));turn=pb.length>3?pb[3]:null;river=pb.length>4?pb[4]:null;
+document.getElementById("hand").innerHTML=hero.map(chip).join("");document.querySelector("details.pkc").open=false;analyze()}else if(ph.length==4){hero=[...ph].sort((a,b)=>R(b)-R(a));flop=[];turn=river=null;document.getElementById("hand").innerHTML=hero.map(chip).join("");document.getElementById("flop").innerHTML="";document.getElementById("out").innerHTML="";ptsRender()}}
+document.getElementById("grid").onclick=e=>{const t=e.target.closest("[data-p]");if(!t)return;const c=+t.dataset.p;
+if(ph.includes(c))ph=ph.filter(x=>x!=c);else if(pb.includes(c))pb=pb.filter(x=>x!=c);else if(ph.length<4)ph.push(c);else if(pb.length<3)pb.push(c);pkr();applyPick()};
+pkr();
+</script>
+</body>
+</html>
