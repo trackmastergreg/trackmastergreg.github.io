@@ -12,7 +12,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:780px;margin:0 auto;padding:16px}
+main{max-width:780px;margin:0 auto;padding:0 16px 16px}
 h1{font-size:20px;margin:4px 0 12px}h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 8px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
@@ -35,9 +35,9 @@ ul{margin:4px 0 0;padding-left:18px}li{margin:3px 0}
 button.s{background:var(--card);color:var(--fg);border:1px solid var(--bd)}
 .eqg{display:flex;flex-wrap:wrap;gap:4px}.eqc{display:flex;flex-direction:column;align-items:center;text-align:center}.eqc small{font-size:11px;line-height:1.2;color:var(--mut)}.eqc.up small{color:var(--acc);font-weight:700}.eqc.dn small{color:var(--bad)}.sm .c{cursor:pointer}
 .calc{font-size:13px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:6px 9px;margin:4px 0 6px}
-.pkc{padding:12px 6px}.pkc>summary{padding-left:8px}@media (max-width:480px){main{padding:10px}}.pk{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.pk .c{min-width:0;height:33px;margin:0;padding:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;cursor:pointer;opacity:1;background:var(--card);border-color:var(--mut)}.pk .c.h{outline:2px solid var(--acc);background:var(--bd)}.pk .c.b{outline:2px solid #d6b86b;background:var(--bd)}summary{cursor:pointer}
+.pkc{padding:12px 6px}.pkc>summary{padding-left:8px}@media (max-width:480px){main{padding:0 10px 10px}}.pk{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.pk .c{min-width:0;height:33px;margin:0;padding:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;cursor:pointer;opacity:1;background:var(--card);border-color:var(--mut)}.pk .c.h{outline:2px solid var(--acc);background:var(--bd)}.pk .c.b{outline:2px solid #d6b86b;background:var(--bd)}summary{cursor:pointer}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0 12px}.hd h1{margin:0}.hd label{flex-direction:row;align-items:center;gap:6px;white-space:nowrap}.hd select{width:auto;padding:6px}
-.btns{float:right;display:flex;gap:6px;margin-top:-5px}.btns button{min-width:72px;padding:7px 0;font-size:14px}.btns select{width:54px;padding:7px 2px;font-size:14px;color:var(--ink)}details.card>summary::after{content:"";display:block;clear:both}
+.btns{float:right;display:flex;gap:6px;margin-top:-5px}.btns button{min-width:72px;padding:7px 0;font-size:14px}.btns .pl{min-width:54px;padding:7px 8px;display:inline-flex;align-items:center;justify-content:center;gap:4px;color:var(--ink)}.pl svg{width:15px;height:15px}button{-webkit-tap-highlight-color:transparent}details.card>summary::after{content:"";display:block;clear:both}
 .top{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}.top button{padding:9px 12px;white-space:nowrap}.top .dl{flex:1}.top label{flex-direction:row;align-items:center;gap:6px;white-space:nowrap}.top select{width:auto;padding:7px 6px}
 .hb .c{min-width:28px;height:38px;padding:0;margin:2px 3px;font-size:16px;line-height:1;display:inline-flex;align-items:center;justify-content:center}.hb .hands{gap:16px;flex-wrap:wrap}.hb h2{margin-bottom:4px}
 summary h2{display:inline;margin:0}details.card>summary{list-style-position:inside}details.card[open]>summary{margin-bottom:8px}
@@ -48,8 +48,8 @@ summary h2{display:inline;margin:0}details.card>summary{list-style-position:insi
 </head>
 <body>
 <main>
-<div class="hd"><h1>♠ Omaha Hi/Lo Analyzer</h1></div>
-<details class="card pkc" open><summary><h2>CARDS</h2><span class="btns"><button id="deal">Deal</button><button id="nh" class="s">Reset</button><select id="opp" aria-label="Players"><option value="8" selected disabled>👤︎</option><option value="1">2</option><option value="2">3</option><option value="3">4</option><option value="4">5</option><option value="5">6</option><option value="6">7</option><option value="7">8</option><option value="8">9</option></select></span></summary><div id="grid" class="pk" style="margin-top:10px"></div></details>
+
+<details class="card pkc" open><summary><h2>CARDS</h2><span class="btns"><button id="deal">Deal</button><button id="nh" class="s">Reset</button><button id="opp" class="s pl" aria-label="Number of players"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4.5" fill="currentColor"/><path d="M3 22c0-5.2 4-8.2 9-8.2s9 3 9 8.2z" fill="currentColor"/></svg><span id="pn"></span></button></span></summary><div id="grid" class="pk" style="margin-top:10px"></div></details>
 <div class="card hb"><div class="hands"><div><h2>Hand</h2><div id="hand"></div></div><div><h2>Board</h2><div id="flop"></div></div><div style="margin-left:auto;text-align:right"><h2 id="acth">Action</h2><div id="pts" class="pts" style="justify-content:flex-end"></div></div></div></div>
 <div id="out"></div>
 <p class="note">Opponents are simulated with random hands, with results as a baseline rather than real ranges. EV = chance to hit × share of the pot (½ for a half-pot draw, 1 for a scoop).</p>
@@ -154,7 +154,7 @@ if(iH){if(nH==1)hW++;else hT++;sHi+=(lex?.5:1)/nH}else{hL++;const bc=(H/759375)|
 if(lex){if(iL){if(nL==1)lW++;else lT++;sLo+=.5/nL}else lN++}
 if(hs&&(!lex||ls))bins.scoop++;else if(hs&&!iL)bins.hi++;else if(iL&&ls&&!iH)bins.lo++;else if(share>0)bins.chop++;else bins.lose++}
 return{eq:sh/SIMS,bins,lowQ:lowEx/SIMS,bl:bl/SIMS,hW,hT,hL,lW,lT,lN,beat,sHi:sHi/SIMS,sLo:sLo/SIMS}}
-function run(){if(!hero||!hero.length)return;const b=board(),un=unseenNow(),stage=b.length,N=un.length,opps=+document.getElementById("opp").value;
+function run(){if(!hero||!hero.length)return;const b=board(),un=unseenNow(),stage=b.length,N=un.length,opps=np-1;
 document.getElementById("flop").innerHTML=b.map((c,i)=>(i==3||i==4?'<span style="margin-left:10px"></span>':"")+chip(c)).join("");
 const [h0,l0]=evalH(hero,b),[nh0,nl0]=nuts(b,un),cat0=(h0/759375)|0,hn0=h0>=nh0,ln0=l0>0&&(nl0<0||l0<=nl0);
 const G={};const add=(k,type,label,nut,c)=>{(G[k]=G[k]||{type,label,nut,cards:[],k}).cards.push(c)};
@@ -185,8 +185,9 @@ document.getElementById("out").innerHTML=h;if(stage==3)startRiver(hero,b,un,G,N,
 const dl=document.getElementById("deal");
 function lab(){dl.textContent="Deal"}
 dl.onclick=deal;
-document.getElementById("nh").onclick=()=>{rvJob++;document.getElementById("opp").selectedIndex=0;hero=[];flop=[];turn=river=null;ph=[];pb=[];document.getElementById("hand").innerHTML="";document.getElementById("flop").innerHTML="";document.getElementById("out").innerHTML="";ptsRender();pkr();document.querySelector("details.pkc").open=true};
-["opp"].forEach(i=>document.getElementById(i).onchange=analyze);
+document.getElementById("nh").onclick=()=>{rvJob++;np=9;plab(null);hero=[];flop=[];turn=river=null;ph=[];pb=[];document.getElementById("hand").innerHTML="";document.getElementById("flop").innerHTML="";document.getElementById("out").innerHTML="";ptsRender();pkr();document.querySelector("details.pkc").open=true};
+let np=9,pt;function plab(n){document.getElementById("pn").textContent=n==null?"":n}
+document.getElementById("opp").onclick=()=>{np=!document.getElementById("pn").textContent?8:(np>2?np-1:9);plab(np);clearTimeout(pt);pt=setTimeout(analyze,450)};
 let ph=[],pb=[];
 function pkr(){document.getElementById("grid").innerHTML=[14,2,3,4,5,6,7,8,9,10,11,12,13].map(r=>[2,3,1,0].map(s=>{const c=r-2+13*s;return`<span data-p="${c}" class="c${s==1||s==2?" r":""}${ph.includes(c)?" h":pb.includes(c)?" b":""}">${RL[r]}${SY[s]}</span>`}).join("")).join("")}
 function applyPick(){if(ph.length==4&&pb.length>=3){hero=[...ph].sort((a,b)=>R(b)-R(a));flop=pb.slice(0,3).sort((a,b)=>R(b)-R(a));turn=pb.length>3?pb[3]:null;river=pb.length>4?pb[4]:null;
