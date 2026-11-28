@@ -13,7 +13,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
 main{max-width:780px;margin:0 auto;padding:0 16px 16px}
-h1{font-size:20px;margin:4px 0 12px}h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 8px}
+h1{font-size:20px;margin:4px 0 12px}h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 8px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
 label{font-size:12px;color:var(--mut);display:flex;flex-direction:column;gap:3px}
@@ -40,10 +40,10 @@ button.s{background:var(--card);color:var(--fg);border:1px solid var(--bd)}
 .btns{margin-left:auto;display:flex;gap:6px}.btns button{min-width:72px;padding:7px 0;font-size:14px}.btns .pl{min-width:54px;padding:7px 8px;display:inline-flex;align-items:center;justify-content:center;gap:4px;color:var(--ink)}.pl svg{width:15px;height:15px}button{-webkit-tap-highlight-color:transparent}details.card>summary{display:flex;align-items:center;gap:8px;list-style:none}details.card>summary::-webkit-details-marker{display:none}details.card>summary::before{content:"";flex:none;border-left:7px solid var(--mut);border-top:5px solid transparent;border-bottom:5px solid transparent;transition:transform .15s}details[open]>summary::before{transform:rotate(90deg)}
 .top{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}.top button{padding:9px 12px;white-space:nowrap}.top .dl{flex:1}.top label{flex-direction:row;align-items:center;gap:6px;white-space:nowrap}.top select{width:auto;padding:7px 6px}
 .hb .c{min-width:28px;height:38px;padding:0;margin:2px 3px;font-size:16px;line-height:1;display:inline-flex;align-items:center;justify-content:center}.hb .hands{gap:16px;flex-wrap:wrap}.hb h2{margin-bottom:4px}
-summary h2{margin:0;font-size:17px;line-height:1}details.card>summary{list-style-position:inside}details.card[open]>summary{margin-bottom:8px}
+summary h2{margin:0;font-size:15px;line-height:1}details.card>summary{list-style-position:inside}details.card[open]>summary{margin-bottom:8px}
 .pts{display:flex;justify-content:flex-end;padding:0}.act{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:50px;height:38px;margin:2px;color:#fff;line-height:1;border:1px solid var(--bd);border-radius:8px}.act b{position:relative;font-size:15px}.act i{position:relative;font-style:normal;font-size:8px;font-weight:700;letter-spacing:.05em;margin-top:2px}.act.fold{background:#d64545}.act.play{background:#2f9e6b}.act.raise{background:linear-gradient(135deg,#fff2a6 0%,#f5c431 38%,#d9a006 70%,#f7d96a 100%);color:#3a2a00;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}.tag.p{background:#d6b86b;color:#222}
 .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;border:1px solid var(--mut)}
-.note{font-size:12px;color:var(--mut)}
+.note{font-size:12px;text-align:center;color:var(--mut)}
 </style>
 </head>
 <body>
@@ -120,7 +120,7 @@ function outsHTML(G,N,stage,lowQ,V){const rows={};for(const k in G)rows[k]={...G
 if(V)for(const k in V.rows){const v=V.rows[k];rows[k]=rows[k]||{type:v.type,label:v.label,nut:v.nut,k,cards:[]};rows[k].n=v.n;rows[k].rr=v.rr}
 const order={scoop:0,hi:1,lo:2,bad:3},gs=Object.values(rows).sort((a,b)=>order[a.type]-order[b.type]||(a.type=="hi"?+b.k[1]-+a.k[1]:0)||b.nut-a.nut||(V?b.n-a.n:b.cards.length-a.cards.length));
 const share={scoop:"Wins BOTH halves of the pot.",hi:`Wins the HIGH half. Worth ½ pot if a low qualifies (${pc(lowQ)} of runouts), the full pot if not.`,lo:"Wins the LOW half (½ pot), and you may chop it if someone holds the same low. Scoops only if you also hold the best high.",bad:"A board card pairs your low cards, so your low gets worse or disappears."};
-let h="<h2>Outs calculations</h2>";if(!gs.length)h+="<p>No improving cards found.</p>";
+let h="<h2>Outs analysis</h2>";if(!gs.length)h+="<p>No improving cards found.</p>";
 for(const g of gs){const o=g.cards.length,sf=g.type=="scoop"?1:.5;g.cards.sort((a,b)=>R(b)-R(a));let calc,sub="";
 if(!V){const t=o/N,hit=stage==3?1-(N-o)*(N-1-o)/(N*(N-1)):t;calc=stage==3?"Calculating by the river…":g.type=="bad"?`${o} counterfeit cards → ${pc(hit)} chance one lands on the river`:`${o} outs → <b>${pc(hit)}</b> to hit on the river × ${sf==1?"1":"½"} pot = <b>${pc(hit*sf)} of the pot</b>`}
 else{calc=g.type=="bad"?`<b>${pc(g.n/V.tot)}</b> of runouts spoil your low by the river`:`<b>${pc(g.n/V.tot)}</b> to hit by the river × ${sf==1?"1":"½"} pot = <b>${pc(g.n/V.tot*sf)} of the pot</b>`;if(g.rr)sub=`<b>${pc(g.rr/V.tot)}</b> of runouts need both cards`}
@@ -175,7 +175,7 @@ let h=`<div class="card"><h2>Expected value</h2><div class="big">
 <div class="leg"><span><i class="dot" style="background:var(--acc)"></i>Scoop ${pc(bins.scoop/SIMS)}</span><span><i class="dot" style="background:#7bb8a0"></i>High half ${pc(bins.hi/SIMS)}</span><span><i class="dot" style="background:#8fa7d6"></i>Low half ${pc(bins.lo/SIMS)}</span><span><i class="dot" style="background:#d6b86b"></i>Tied/chopped ${pc(bins.chop/SIMS)}</span><span><i class="dot" style="background:var(--bd)"></i>No share ${pc(bins.lose/SIMS)}</span></div>
 </div>`;
 {const Q=SIMS,P=n=>pc(n/Q),bk=Object.entries(M.beat).sort((a,b)=>b[1]-a[1]);
-h+=`<div class="card"><h2>EV details</h2>
+h+=`<div class="card"><h2>Equity Summary</h2>
 <div class="g"><h3>${pc(eq)} of equity</h3><p>High half <b>${pc(M.sHi)}</b> of the pot + low half <b>${pc(M.sLo)}</b> of the pot.</p></div>
 <div class="g"><h3>High half</h3><p>Win outright <b>${P(M.hW)}</b> · tie <b>${P(M.hT)}</b> · lose <b>${P(M.hL)}</b></p>${M.hL?`<p>When you lose the high, the winning hand is: ${bk.map(([c,v])=>CATS[c].toLowerCase()+" <b>"+pc(v/M.hL)+"</b>").join(", ")}.</p>`:""}</div>
 <div class="g"><h3>Low half</h3><p>Win outright <b>${P(M.lW)}</b> · tie <b>${P(M.lT)}</b> · lose <b>${P(M.lN)}</b></p><p>A low qualifies in <b>${pc(lowQ)}</b> of runouts, high hand takes the whole pot <b>${pc(1-lowQ)}</b> of the time.</p></div></div>`}
